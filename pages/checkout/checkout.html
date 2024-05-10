@@ -49,49 +49,203 @@
         </div>
     </header>
 
-    <div class="checkoutForm">
-        <h3>CHECK OUT: </h3>
-        <div class="group">
-            <label for="">Full Name</label>
-            <input type="text" name="name" id="name">
+
+    <div class="space"></div>
+
+
+    <!-- ================ CHECKOUT SECTION ================ -->
+    <section class="mainContainer">
+        <!-- Cart -->
+        <section class="container cartContainer">
+
+            <h2>THÔNG TIN SẢN PHẨM</h2>
+
+            <div class="innerCartBox">
+                <!-- cart item -->
+                <div class="cartItem">
+                    <!-- img -->
+                    <div class="imgCartContainer">
+                        <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/NJ0154-80H.jpg" alt="cart_img">
+                    </div>
+
+                    <!-- cart item info -->
+                    <div class="infoCartContainer">
+                        <h3>Product Nam - Quartz (Pin) - Mặt Số 38mm, Kính Cứng, Chống Nước 3ATM</h3>
+                        <!-- quantity container -->
+                        <div class="quantityContainer">
+                            <!-- change quantity -->
+                            <div class="quantity">
+                                <span class="item-quantity">
+                                    <button class="minusCartBtn" onclick="">-</button>
+                                    <p>1</p>
+                                    <button class="addCartBtn" onclick="">+</button>
+                                </span>
+                                <span class="item-price">
+                                    <p>13.685.000 ₫</p>
+                                </span>
+                            </div>
+
+                            <!-- cart item price -->
+                            <div class="cartItemPrice">
+
+                            </div>
+                        </div>
+
+                        <!-- delete btn -->
+                        <button class="deleteCartItem"><i></i> Xoá</button>
+                    </div>
+
+                </div>
+                <div class="cartItem">
+                    <!-- img -->
+                    <div class="imgCartContainer">
+                        <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/NJ0154-80H.jpg" alt="cart_img">
+                    </div>
+
+                    <!-- cart item info -->
+                    <div class="infoCartContainer">
+                        <h3>Product Nam - Quartz (Pin) - Mặt Số 38mm, Kính Cứng, Chống Nước 3ATM</h3>
+                        <!-- quantity container -->
+                        <div class="quantityContainer">
+                            <!-- change quantity -->
+                            <div class="quantity">
+                                <span class="item-quantity">
+                                    <button class="minusCartBtn" onclick="">-</button>
+                                    <p>1</p>
+                                    <button class="addCartBtn" onclick="">+</button>
+                                </span>
+                                <span class="item-price">
+                                    <p>13.685.000 ₫</p>
+                                </span>
+                            </div>
+
+                            <!-- cart item price -->
+                            <div class="cartItemPrice">
+
+                            </div>
+                        </div>
+
+                        <!-- delete btn -->
+                        <button class="deleteCartItem"><i></i> Xoá</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="innerCartTotalPrice">
+                <div class="coupon">
+                    <h4>Phiếu ưu đãi</h4>
+                </div>
+                <div class="preTotalPrice">
+                    <p>Tạm tính</p>
+                    <p class="pre-price">13.685.000 ₫</p>
+                </div>
+                <div class="totalPrice">
+                    <p>Tổng</p>
+                    <p class="price">13.685.000 ₫</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Form -->
+        <section class="container checkoutForm">
+
+            <h2>THÔNG TIN KHÁCH HÀNG</h2>
+
+            <section class="formGroup">
+                <div class="group">
+                    <label for="">Tên khách hàng</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div class="group">
+                    <label for="">Số điện thoại</label>
+                    <input type="text" name="phone" id="phone">
+                </div>
+                <div class="group">
+                    <label for="">Email</label>
+                    <input type="text" name="email" id="email">
+                </div>
+            </section>
+
+            <h2>THÔNG TIN NHẬN HÀNG</h2>
+
+            <section class="formGroup">
+                <div class="group">
+                    <label for="">Thành phố</label>
+                    <select name="city" id="city">
+                        <option value="">Choose...</option>
+                        <option value="hcmc">Ho Chi Minh</option>
+                        <option value="hanoi">Ha Noi</option>
+                        <option value="danang">Da Nang</option>
+                        <option value="nhatrang">Nha Trang</option>
+                        <option value="thanhhoa">Thanh Hoa</option>
+                        <option value="cantho">Can Tho</option>
+                    </select>
+                </div>
+                <div class="group">
+                    <label for="">Địa chỉ</label>
+                    <input type="text" name="address" id="address">
+                </div>
+            </section>
+
+            <h2>PHƯƠNG THỨC THANH TOÁN</h2>
+
+            <div class="group">
+                <input type="radio" name="address" id="address">
+                <label for="">Chuyển Khoản Ngân Hàng</label>
+                <p>abc abc abc</p>
+            </div>
+            <div class="group">
+                <input type="radio" name="address" id="address">
+                <label for="">Thanh Toán Khi Nhận Hàng</label>
+                <p>abc abc abc</p>
+            </div>
+            <div class="group">
+                <input type="radio" name="address" id="address">
+                <label for="">Thanh Toán Bằng MoMo</label>
+                <p>abc abc abc</p>
+            </div>
+            <div class="group">
+                <input type="radio" name="address" id="address">
+                <label for="">Thanh Toán Bằng VNPay</label>
+                <p>abc abc abc</p>
+            </div>
+
+            <div class="space"></div>
+
+            <!-- Checkout Btn -->
+            <button onclick="checkout(event)">Thanh Toán</button>
+        </section>
+
+
+        <div class="space"></div>
+
+
+    </section>
+
+    <!-- Social Media -->
+    <h2 class="collection-title">
+        KẾT NỐI VỚI CHÚNG TÔI
+    </h2>
+    <section class="social_media_container">
+        <div class="inner_layout inner_social_media">
+            <div class="social_media">
+                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/08/fb.png" alt="facebook">
+            </div>
+            <div class="social_media">
+                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/08/it.png" alt="instagram">
+            </div>
+            <div class="social_media">
+                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/yt.png" alt="youtube">
+            </div>
+            <div class="social_media">
+                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/tt.png" alt="tiktok">
+            </div>
+            <div class="social_media">
+                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/tw.png" alt="x">
+            </div>
         </div>
-        <div class="group">
-            <label for="">Phone Number</label>
-            <input type="text" name="phone" id="phone">
-        </div>
-        <div class="group">
-            <label for="">City</label>
-            <select name="city" id="city">
-                <option value="">Choose...</option>
-                <option value="hcmc">Ho Chi Minh</option>
-                <option value="hanoi">Ha Noi</option>
-                <option value="danang">Da Nang</option>
-                <option value="nhatrang">Nha Trang</option>
-                <option value="thanhhoa">Thanh Hoa</option>
-                <option value="cantho">Can Tho</option>
-            </select>
-        </div>
-        <div class="group">
-            <label for="">Address</label>
-            <input type="text" name="address" id="address">
-        </div>
-    </div>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus asperiores nulla a, sed quas ad iusto assumenda! Porro sint aut recusandae quos nihil quibusdam quidem facilis voluptate mollitia, fugit ex.
-    Numquam, quidem vitae nihil eos architecto optio officiis ab mollitia aspernatur, ex debitis? Dolore, perferendis nemo? Delectus ab officiis molestias neque in laboriosam recusandae dolorem aliquid. Dolore iure cum deleniti.
-    Odio vero sapiente maiores necessitatibus saepe, velit, magni distinctio perferendis alias, reiciendis placeat. Obcaecati vero rem officiis consectetur necessitatibus illo aspernatur totam, culpa ipsa quibusdam fuga odit corporis soluta nulla.
-    Ratione fuga possimus quisquam deleniti nemo, ipsam nobis. Sit saepe rerum totam non consequatur obcaecati doloribus illo temporibus, eius nesciunt autem repellat ullam nostrum magni quod inventore perferendis vel quaerat.
-    Debitis quisquam eius enim, laboriosam fugit, praesentium exercitationem dignissimos delectus quod ipsa ad totam repellendus voluptas ipsam cumque iusto sapiente dolore optio quia. Veniam aspernatur libero repudiandae sapiente ab dolore?
-    Aut corrupti qui deserunt maxime quo est reiciendis, assumenda repellendus cumque necessitatibus facilis quas eveniet laborum alias ratione temporibus fuga, impedit beatae aliquam quaerat amet vel earum commodi ullam? Ad?
-    Magnam vitae repellat inventore saepe dolores voluptatibus error ex architecto minima laudantium suscipit, ullam hic accusantium incidunt deserunt eum numquam repudiandae atque? Dicta cum, exercitationem ipsum rem omnis a minima?
-    Eaque quibusdam unde non odit libero earum repellendus? Aspernatur reiciendis, illo ipsum deserunt asperiores tenetur, accusantium voluptas iusto molestias dignissimos omnis, odit quae itaque impedit voluptate a nemo ut deleniti.
-    Reiciendis, dignissimos nostrum cumque dolorem, numquam, alias laborum dolor facilis repellat consequatur veniam quos adipisci aut. Necessitatibus saepe veniam dolorum adipisci assumenda vero voluptatem voluptas. Odit libero optio eaque enim?
-    Nemo in vel maxime commodi quod, voluptas temporibus repudiandae, debitis, magni natus vitae alias odit reprehenderit ducimus fugiat? Molestias, delectus. Nesciunt nihil soluta neque hic suscipit nobis nemo impedit voluptatem!
-    Dicta deserunt perspiciatis hic qui expedita exercitationem necessitatibus labore vitae quibusdam nulla accusamus perferendis tenetur tempora eos vel iure, ut, eveniet a repellendus. Dicta possimus vel doloremque harum adipisci totam.
-    Dolorum porro ratione, quaerat blanditiis, repudiandae est corporis assumenda perspiciatis quae at iure consequatur eaque tempora quasi tenetur dicta? Animi earum nam quis adipisci fuga eos itaque, recusandae maxime vel.
-    Accusamus sapiente velit esse rerum omnis ut voluptates consequuntur exercitationem inventore, impedit fugit iure natus praesentium aliquid in neque id tempora doloribus alias cum. Adipisci saepe quas dolore delectus eveniet?
-    Odio vel culpa reiciendis expedita placeat vitae a error dolores, eos, dolor id sed sunt voluptates ipsum labore dolorum fugit saepe mollitia quod nulla temporibus? Soluta quam placeat praesentium saepe.
-    Dolores provident, consequatur quibusdam deserunt veniam deleniti delectus soluta quidem doloribus reiciendis eos ea expedita quasi ullam rerum hic consectetur placeat voluptates atque aspernatur iusto porro voluptatibus beatae. Velit, consequatur.</p>
-    <button onclick="checkout(event)">Thanh Toán</button>
+    </section>
 
 
     <div class="space"></div>

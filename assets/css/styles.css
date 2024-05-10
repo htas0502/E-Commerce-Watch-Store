@@ -356,7 +356,7 @@ nav {
 .inner_layout {
     padding: 0px 140px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .layout-box {
@@ -481,16 +481,30 @@ nav {
     margin: 40px 0;
 }
 
+.service_item {
+    margin: 0px 20px;
+}
+
 /* Social Media */
+
 .social_media_container {
     margin-top: 40px;
     padding: 0px 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.inner_social_media {
+    min-width: 1000px;
 }
 
 .social_media {
     height: 40px;
     width: 40px;
     border-radius: 50%;
+    margin: 0px 20px;
     overflow: hidden;
 }
 .social_media img {
