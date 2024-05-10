@@ -1,0 +1,215 @@
+/* ... */
+
+
+/* ============ GLOBAL ============ */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* overflow: hidden; */
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block!important;
+}
+
+.padding_1 {
+    padding: 0px 10px 20px;
+}
+
+
+/* ============ HEADER ============ */
+
+
+header {
+    background-color: #f4f4f4;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-bottom: 2px solid #9f1d25;
+    padding-bottom: 1px;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    width: 85%;
+}
+#header h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    min-width: 200px;
+    flex-wrap: 1;
+}
+#header h1 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.side-box {
+    width: 400px;
+}
+
+.search {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.search i {
+    width: 33.2px;
+    height: 33.2px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_container {
+    display: flex;
+}
+
+.search_container input {
+    height: 28px;
+    width: 200px;
+}
+
+.cartBtn {
+    width: 33.2px;
+    height: 33.2px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navigation */
+
+nav {
+    width: 85%;
+}
+
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #fff;
+    padding: 0px 200px;
+    height: 45px;
+    margin: 0;
+}
+.nav_container .nav_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 100px;
+    height: 100%;
+}
+.nav_container .nav_item p{
+    width: 100%;
+    height: 100%;
+    border-bottom: 5px solid #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav_container .nav_item:hover p {
+    /* background-color: #fff; */
+    color: #d82834;
+    border-bottom: 5px solid #d82834;
+}
+
+/* Drop Down Box */
+.dropdown {
+    width: 100%;
+    height: 250px;
+    z-index: 1001;
+    margin-top: 145px;
+    border-bottom: 2px solid #9f1d25;
+    background-color: #f4f4f4;
+    position: absolute;
+    float: left;
+    display: none;
+}
+
+
+/* ============ CHECKOUT SECTION ============ */
+
+
+.checkoutForm {
+    flex: 1;
+    background-color: rgb(200, 220, 255);
+    margin: 20px;
+    padding: 10px;
+    height: 1000px;
+}
+
+.checkoutForm h3 {
+    margin-bottom: 20px;
+}
+
+
+/* ============ FOOTER ============ */
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #9f1d25;
+    overflow: hidden;
+    width: 100%;
+}
+
+.footer_wrapper {
+    width: 80%;
+    padding: 30px 60PX;
+    color: #ffffff;
+    display: flex;
+}
+.column-item {
+    width: 25%;
+}
+.column-item h3{
+    margin: 20px 0;
+}
+.column-item a {
+    text-decoration: none;
+    color: #f4f4f4;
+    height: 30px;
+}
+.column-item a:hover {
+    color: darkorange;
+}
+.column-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_para {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px;
+    bottom: 0;
+}
