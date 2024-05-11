@@ -12,7 +12,6 @@ const productAmount = document.querySelectorAll("#productAmount");
 const productLinks = document.querySelectorAll('.product_link');
 const brandLinks = document.querySelectorAll('.brand-link');
 const maleProductContainer = document.querySelector('.male_collection');
-const brandTitle = document.querySelectorAll('.brand-select');
 
 
 const brandList = [
@@ -475,6 +474,47 @@ document.addEventListener('DOMContentLoaded', () => {
 // *****====== MAIN CONTAINER ======*****
 
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 
+    function get1stBrandProduct() {
+        const maleProductsApi = "http://localhost:3000/products";
+                fetch(maleProductsApi)
+                    .then((response) => {
+                        // JSON.parse:  JSON --> JS type
+                        return response.json();
+                    })
+                    .then((maleProducts) => {
+                        maleProducts.forEach((product) => {
+                            if(product.brand === "Casio") {
+                                // log
+                                console.log(product.brand);
+
+                                if(product.gender === "male") {
+                                    let vndPrice = product.price.toLocaleString('vi-VN')
+        
+                                    const card = document.createElement('div');
+                                    card.classList.add('product_card');
+                                    card.innerHTML = `
+                                        <span class="imgAndInfo">
+                                            <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
+                                                <img class="main_img" src=${product.img} alt="main-image" />
+                                                <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
+                                            </a>
+                                            <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4>${product.name}</h4></a>
+                                        </span>
+                                        <span class="priceAndCart">
+                                            <p>Giá: ${vndPrice} vnd</p>
+                                            <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
+                                        </span>
+                                    `;
+                                    maleProductContainer.appendChild(card);
+                                }
+                            }
+                        })
+                    })
+    }
+    get1stBrandProduct()
+
     // get Brand Menu:
     function getBrandMenu() {
         const brandMenuHtml = document.querySelector('.brand-menu');
@@ -482,115 +522,56 @@ document.addEventListener('DOMContentLoaded', () => {
         brandList.forEach(brand => {
             const newDiv = document.createElement('div');
             newDiv.classList.add('menu-item');
+            newDiv.setAttribute("data", `${brand.title}`)
             newDiv.innerHTML = `
                 <p class="brand-select" data="${brand.title}">${brand.title}</p>
             `;
             brandMenuHtml.appendChild(newDiv);
+
+            // Click Handler:
+            newDiv.addEventListener("click", () => {
+                // log
+                // console.log(newDiv.getAttribute("data"));
+                maleProductContainer.innerHTML = '';
+
+
+                const maleProductsApi = "http://localhost:3000/products";
+                fetch(maleProductsApi)
+                    .then((response) => {
+                        // JSON.parse:  JSON --> JS type
+                        return response.json();
+                    })
+                    .then((maleProducts) => {
+                        maleProducts.forEach((product) => {
+                            if(product.brand === newDiv.getAttribute("data")) {
+                                // log
+                                console.log(product.brand);
+
+                                if(product.gender === "male") {
+                                    let vndPrice = product.price.toLocaleString('vi-VN')
+        
+                                    const card = document.createElement('div');
+                                    card.classList.add('product_card');
+                                    card.innerHTML = `
+                                        <span class="imgAndInfo">
+                                            <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
+                                                <img class="main_img" src=${product.img} alt="main-image" />
+                                                <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
+                                            </a>
+                                            <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4>${product.name}</h4></a>
+                                        </span>
+                                        <span class="priceAndCart">
+                                            <p>Giá: ${vndPrice} vnd</p>
+                                            <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
+                                        </span>
+                                    `;
+                                    maleProductContainer.appendChild(card);
+                                }
+                            }
+                        })
+                    })
+            })
         })
     }
     getBrandMenu();
 })
-
-// get Brand Product:
-brandTitle.forEach((title) => {
-    title.addEventListener("click", () => {
-        console.log("clicked");
-    })
-});
-
-
-// function getBrandProduct() {
-//     const brandTitle = document.querySelectorAll('.brand-select');
-
-
-//     const maleProductsApi = "http://localhost:3000/products";
-//     fetch(maleProductsApi)
-//         .then((response) => {
-//             // JSON.parse:  JSON --> JS type
-//             return response.json();
-//         })
-//         .then((maleProducts) => {
-//             maleProducts.forEach((product) => {
-//                 brandTitle.forEach((title) => {
-//                     // log test
-//                     // console.log(title.getAttribute('data'));
-
-//                     let vndPrice = product.price.toLocaleString('vi-VN');
-
-//                     if(title.getAttribute('data') === product.brand) {
-//                         // console.log(product);
-//                         // console.log(title.getAttribute('data'));
-
-//                         if(product.gender === "male") {
-//                             console.log(product.brand);
-
-
-//                             maleProductContainer.innerHTML = '';
-//                             const card = document.createElement('div');
-//                             card.classList.add('product_card');
-//                             card.innerHTML = `
-//                                 <span class="imgAndInfo">
-//                                     <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
-//                                         <img class="main_img" src=${product.img} alt="main-image" />
-//                                         <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
-//                                     </a>
-//                                     <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4>${product.name}</h4></a>
-//                                 </span>
-//                                 <span class="priceAndCart">
-//                                     <p>Giá: ${vndPrice} vnd</p>
-//                                     <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
-//                                 </span>
-//                             `;
-//                             maleProductContainer.appendChild(card);
-//                         }
-//                     }
-//                 })
-//             });
-//         })
-// };
-
-// get random male products API:
-// function getMaleProducts() {
-
-//     const maleProductsApi = "http://localhost:3000/products";
-//     fetch(maleProductsApi)
-//         .then((response) => {
-//             // JSON.parse:  JSON --> JS type
-//             return response.json();
-//         })
-//         .then((maleProducts) => {
-//             maleProducts.forEach((product) => {
-//                 let vndPrice = product.price.toLocaleString('vi-VN');
-//                 // log test
-//                 console.log(product.id);
-
-//                 brandList.forEach(brand => {
-//                     if(brand.title === product.brand) {
-//                         if(product.gender === "male") {
-//                             const card = document.createElement('div');
-//                             card.classList.add('product_card');
-//                             card.innerHTML = `
-//                                 <span class="imgAndInfo">
-//                                     <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
-//                                         <img class="main_img" src=${product.img} alt="main-image" />
-//                                         <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
-//                                     </a>
-//                                     <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4>${product.name}</h4></a>
-//                                 </span>
-//                                 <span class="priceAndCart">
-//                                     <p>Giá: ${vndPrice} vnd</p>
-//                                     <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
-//                                 </span>
-//                             `;
-//                             maleProductContainer.appendChild(card);
-//                         }
-//                     }
-//                 })
-
-//             })
-//         })
-//         .catch((err) => {
-//             console.log("Error! Unable to respond API.");
-//         })
-// }
-// getMaleProducts();

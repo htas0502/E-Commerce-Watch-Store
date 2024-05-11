@@ -559,7 +559,7 @@ function generateProductCards() {
                     // log test
                     console.log(product.id);
 
-                    if(product.id % 2 == 0) {
+                    if((product.id % 2 == 0) && (product.id % 5 == 0)) {
                         if(product.gender === "male") {
                             const card = document.createElement('div');
                             card.classList.add('product_card');
@@ -599,7 +599,7 @@ function generateProductCards() {
                 femaleProducts.forEach((product) => {
                     let vndPrice = product.price.toLocaleString('vi-VN');
 
-                    if(product.id % 2 == 0) {
+                    if((product.id % 2 == 0) && (product.id % 5 == 0)) {
                         if(product.gender === "female") {
                             const card = document.createElement('div');
                             card.classList.add('product_card');

@@ -450,6 +450,13 @@ nav {
 
 /* Brand Menu */
 
+.clicked {
+    border: 1px solid #bebebe;
+    background-color: #eeeeee;
+    font-weight: bold;
+    color: #9f1d25;
+}
+
 .brand-menu {
     display: flex;
     justify-content: center;
@@ -470,6 +477,7 @@ nav {
 .menu-item:hover {
     border: 1px solid #bebebe;
     background-color: #eeeeee;
+    color: #9f1d25;
 }
 
 
