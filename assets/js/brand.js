@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ____________________________________________________________________________________
 
 
-// *****====== PRODUCT DETAILS ======*****
+// *****====== PRODUCT BRANDS DETAILS ======*****
 
 // ...
 document.addEventListener('DOMContentLoaded', function() {
@@ -581,8 +581,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     getBrandProducts(productBrand);
 });
-
-
 
 
 

@@ -40,7 +40,7 @@ header {
     flex-direction: column;
     align-items: center;
     position: relative;
-    border-bottom: 2px solid #9f1d25;
+    border-bottom: 1px solid #c0c0c0;
     padding-bottom: 1px;
 }
 
@@ -108,7 +108,7 @@ nav {
 
 .nav_container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     border-bottom: solid 1px #fff;
     padding: 0px 200px;
     height: 45px;
@@ -119,7 +119,9 @@ nav {
     justify-content: center;
     align-items: center;
     color: #fff;
-    width: 100px;
+    cursor: pointer;
+    margin: 0px 20px;
+    width: 120px!important;
     height: 100%;
 }
 .nav_container .nav_item p{
@@ -143,7 +145,7 @@ nav {
     z-index: 1001;
     margin-top: 145px;
     border-top: 1px solid #c0c0c0;
-    border-bottom: 2px solid #9f1d25;
+    border-bottom: 1px solid #c0c0c0;
     background-color: #f4f4f4;
     position: absolute;
     float: left;
@@ -153,7 +155,6 @@ nav {
 .nav_info {
     width: 100%;
     height: 100%;
-    /* background-color: #ffb5b5; */
 }
 
 .brandLayout {
@@ -181,6 +182,23 @@ nav {
 }
 .brand-box-img img:hover {
     scale: 1.08;
+}
+
+.content-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container a {
+    text-decoration: none;
+    color: #9f1d25;
+    font-weight: bold;
+    transition: .3s;
+}
+.content-container a:hover {
+    color: #ff6b6b;
 }
 
 
@@ -379,6 +397,7 @@ nav {
 .layout-box {
     width: 200px;
     height: 100%;
+    margin: 0px 20px;
 }
 .layout-box p {
     font-size: 14px;
