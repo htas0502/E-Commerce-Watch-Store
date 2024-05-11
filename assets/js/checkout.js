@@ -136,7 +136,6 @@ renderHeader();
 // *****====== CHECKOUT SECTION ======*****
 
 
-
 // Render Cart Items:
 document.addEventListener('DOMContentLoaded', function() {
     // Khai báo biến...
@@ -245,66 +244,84 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
             });
 });
+// === Pay Checkout ===
+function checkout(event) {
+    let customerList = [];
+                
+    // // Ngăn chặn hành động mặc định của form
+    // event.preventDefault();
+                
+    const totalPriceRender = document.querySelector("#total");
+    const cartBox = document.querySelector(".cartBox");
+                
+                
+    // user info declared:
+    var name = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var email = document.getElementById('email').value;
+    var address = document.getElementById('address').value;
+    var city = document.getElementById('city').value;
+    var payment = document.getElementsByName('payment');
 
-// Pay Checkout:
-// function checkout(event) {
-//     // // Ngăn chặn hành động mặc định của form
-//     event.preventDefault();
+                
+    // Tạo một object mới chứa thông tin khách hàng:
+    var customerObj = {
+        name: name,
+        phone: phone,
+        email: email,
+        address: address,
+        city: city
+    }; 
+    
+    
 
-//     const totalPriceRender = document.querySelector("#total");
-//     const cartBox = document.querySelector(".cartBox");
-
-
-//     // user info declared:
-//     var name = document.getElementById('name').value;
-//     var phone = document.getElementById('phone').value;
-//     var email = document.getElementById('email').value;
-//     var address = document.getElementById('address').value;
-//     var city = document.getElementById('city').value;
-
-//     // Tạo một object mới chứa thông tin khách hàng:
-//     var customerObj = {
-//         name: name,
-//         phone: phone,
-//         email: phone,
-//         address: address,
-//         city: city
-//     }; 
-
-//     // // Thêm object customerObj vào mảng customerList (nếu mảng chưa được khởi tạo, cần khởi tạo mảng trước đó)
-//     // customerList.push(customerObj);
-
-//     // // log test:
-//     // console.log("All Users: ", customerList);
+    if(name.trim() === '' || phone.trim() === '' || email.trim() === '' || address.trim() === '' || city.trim() === "") {
+        // log test
+        console.log("invalid information!");
 
 
-//     const cart = JSON.parse(localStorage.getItem('cart')) || {};
-//     localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
+    } else {
+        // Duyệt qua các input radio để kiểm tra xem có input nào được chọn không
+        for (var i = 0; i < payment.length; i++) {
+            if (payment[i].checked) {
+                // log test
+                console.log("form validated!");
 
 
-//     // check if cart is empty:
-//     if (cart.length === 0) {
-//         alert('Your cart is empty!');
-//     } else {
-//         // log test:
-//         console.log("Cart before checkout: ", cart);
+                const cart = JSON.parse(localStorage.getItem('cart')) || {};
+                localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
 
-//         // Thêm object customerObj vào mảng customerList (nếu mảng chưa được khởi tạo, cần khởi tạo mảng trước đó)
-//         customerList.push(customerObj);
-//         // log test:
-//         console.log("All Users: ", customerList);
+                // log test:
+                console.log("Cart before checkout: ", cart);
 
-//         // reset cart & total price:
-//         alert(`Total amount to pay: ${totalPrice} $ \nThank you for your purchase!`);
-//         cart = [];
-//         totalPrice = 0;
-//     }
+                // Thêm object customerObj vào mảng customerList (nếu mảng chưa được khởi tạo, cần khởi tạo mảng trước đó)
+                customerList.push(customerObj);
+                // log test:
+                console.log("All Users: ", customerList);
 
-//     // remove cart element after checkout:
-//     while (cartBox.hasChildNodes()) {
-//         cartBox.removeChild(cartBox.firstChild);
-//     }
-
-//     // reload total price after checkout:
-//     totalPriceRender.innerHTML = `${totalPrice}`;
-// }
+                // // reset cart & total price:
+                // cart = [];
+                // totalPrice = 0;
+            } else {
+                console.log("invalid payment!");
+            }
+        }
+    }
+    
+                
+    // const cart = JSON.parse(localStorage.getItem('cart')) || {};
+    // localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
+                
+    // // log test:
+    // console.log("Cart before checkout: ", cart);
+                
+    // // Thêm object customerObj vào mảng customerList (nếu mảng chưa được khởi tạo, cần khởi tạo mảng trước đó)
+    // customerList.push(customerObj);
+    // // log test:
+    // console.log("All Users: ", customerList);
+                
+    // // reset cart & total price:
+    // alert(`Total amount to pay: ${totalPrice} $ \nThank you for your purchase!`);
+    // cart = [];
+    // totalPrice = 0;
+};
