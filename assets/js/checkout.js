@@ -278,7 +278,7 @@ function checkout(event) {
     if(name.trim() === '' || phone.trim() === '' || email.trim() === '' || address.trim() === '' || city.trim() === "") {
         // log test
         console.log("invalid information!");
-
+        alert("Bạn chưa điền đầy đủ thông tin!");
 
     } else {
         // Duyệt qua các input radio để kiểm tra xem có input nào được chọn không
@@ -304,6 +304,7 @@ function checkout(event) {
                 // totalPrice = 0;
             } else {
                 console.log("invalid payment!");
+                alert("Bạn chưa chọn phương thức thanh toán!");
             }
         }
     }

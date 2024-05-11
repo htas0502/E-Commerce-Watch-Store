@@ -74,6 +74,46 @@ function renderHeader() {
             info: `Hãy gọi cho chúng tôi.`
         },
     ];
+
+    // Brand Container:
+const brandList = [
+    {
+        id: 1,
+        title: "Casio",
+        img: "",
+        link: "",
+    },
+    {
+        id: 1,
+        title: "Casio",
+        img: "",
+        link: "",
+    },
+    {
+        id: 1,
+        title: "Casio",
+        img: "",
+        link: "",
+    },
+    {
+        id: 1,
+        title: "Casio",
+        img: "",
+        link: "",
+    },
+    {
+        id: 1,
+        title: "Casio",
+        img: "",
+        link: "",
+    },
+    {
+        id: 1,
+        title: "Casio",
+        img: "",
+        link: "",
+    },
+];
     
     navTitle.map(nav => {
         const navItem = document.createElement('div');
@@ -284,76 +324,6 @@ function updateCartUI(cart, productId, productName, productPrice) {
             })
     }
 }
-
-// Hàm tính giá của sản phẩm
-// function getProductPrice(productId) {
-//     const productsApi = "http://localhost:3000/products";
-//         fetch(productsApi)
-//             .then((response) => {
-//                 // JSON.parse:  JSON --> JS type
-//                 return response.json();
-//             })
-//             .then((productList) => {
-//                 productList.forEach(dbProduct => {
-//                     // console.log(dbProduct.id);
-//                     productId = dbProduct.id;
-
-//                     const product = productList[dbProduct.id - 1];
-//                     return product ? product.price : 0;
-//                 })
-
-//                 // log test
-//                 // console.log(productList);
-
-//             })
-// }
-
-// Hàm lấy tên hiển thị của sản phẩm
-// function getProductDisplayName(productId) {
-//     const productsApi = "http://localhost:3000/products";
-//         fetch(productsApi)
-//             .then((response) => {
-//                 // JSON.parse:  JSON --> JS type
-//                 return response.json();
-//             })
-//             .then((productList) => {
-//                 productList.forEach(dbProduct => {
-//                     // console.log(productList[dbProduct.id]);
-//                     console.log("id in cart: ", productId);
-//                     // console.log(dbProduct.id);
-
-//                     if(productId == dbProduct.id) {
-//                         const product = productList[productId - 1];
-
-//                         // log test
-//                         console.log(product.name);
-
-//                         return product ? product.name : '';
-//                     }
-//                 })
-//             })
-// }
-
-
-// Hàm tính tổng tiền của giỏ hàng
-
-// function calculateTotalPrice(cart) {
-//     let totalPrice = 0;
-//     for (const productId in cart) {
-//         const quantity = cart[productId];
-//         const productPrice = getProductPrice(productId);
-//         totalPrice += productPrice * quantity;
-//     }
-//     return totalPrice;
-// }
-
-// Hàm xử lý thanh toán
-
-// function checkout() {
-//     const cart = JSON.parse(localStorage.getItem('cart')) || {};
-//     localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
-//     updateCartUI(cart); // Cập nhật giao diện giỏ hàng sau khi xóa
-// }
 
 document.addEventListener('DOMContentLoaded', () => {
     const cart = JSON.parse(localStorage.getItem('cart')) || {};
@@ -616,42 +586,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Brand Container:
-const brandList = [
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-];
