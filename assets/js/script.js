@@ -10,6 +10,7 @@ const totalPriceRender = document.querySelector("#total");
 const cartBox = document.querySelector(".cartBox");
 const productAmount = document.querySelectorAll("#productAmount");
 const productLinks = document.querySelectorAll('.product_link');
+const brandLinks = document.querySelectorAll('.brand-link');
 
 
 // ____________________________________________________________________________________
@@ -51,7 +52,62 @@ function renderHeader() {
         {
             id: 1,
             title: "Thương Hiệu",
-            info: `Tùm lum các thương hiệu...`
+            info: `
+                <div class="brandLayout">
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=Casio">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Casio-1.jpg" alt="casio"/>
+                        </a>
+                    </div>
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=Citizen">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Citizen-1.jpg" alt="citizen"/>
+                        </a>
+                    </div>
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=Doxa">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Doxa.jpg" alt="doxa"/>
+                        </a>
+                    </div>
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=DW">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Daniel-Wellington.jpg" alt="dw"/>
+                        </a>
+                    </div>
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=Fossil">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Fossil.jpg" alt="fossil"/>
+                        </a>
+                    </div>
+                </div>
+                <div class="brandLayout">
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=G-Shock">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/G-Shock.jpg" alt="g-shock"/>
+                        </a>
+                    </div>
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=Longines">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Longines.jpg" alt="longines"/>
+                        </a>
+                    </div>
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=Orient">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Orient-1.jpg" alt="orient"/>
+                        </a>
+                    </div>
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=Seiko">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Seiko.jpg" alt="seiko"/>
+                        </a>
+                    </div>
+                    <div class="brand-box-img">
+                        <a class="brand-link" href="/pages/brand/brand.html?brand=Tissot">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/10/Tissot.jpg" alt="tissot"/>
+                        </a>
+                    </div>
+                </div>
+            `
         },
         {
             id: 2,
@@ -76,44 +132,68 @@ function renderHeader() {
     ];
 
     // Brand Container:
-const brandList = [
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-    {
-        id: 1,
-        title: "Casio",
-        img: "",
-        link: "",
-    },
-];
+    const brandList = [
+        {
+            id: 1,
+            title: "Casio",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Citizen",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Doxa",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "DW",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Fossil",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "G-Shock",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Longines",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Orient",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Seiko",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Tissot",
+            img: "",
+            link: "",
+        },
+    ];
     
     navTitle.map(nav => {
         const navItem = document.createElement('div');
@@ -132,10 +212,7 @@ const brandList = [
                 dropDown.classList.add("hide");
                 dropDown.classList.remove("show");
             }
-
-            // dropDown.classList.add("nav_color-change");
         })
-
         navItem.addEventListener("mouseover", () => {
             dropDownInfo.forEach(info => {
                 if(info.id == nav.id) {
@@ -568,7 +645,6 @@ function generateProductCards() {
 document.addEventListener('DOMContentLoaded', generateProductCards);
 
 
-
 // ____________________________________________________________________________________
 
 
@@ -577,6 +653,23 @@ document.addEventListener('DOMContentLoaded', generateProductCards);
 // get product detail API:
 document.addEventListener('DOMContentLoaded', function() {
     productLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
+            const productUrl = this.getAttribute('href');
+            window.location.href = productUrl; // Chuyển hướng đến trang chi tiết sản phẩm
+        });
+    });
+});
+
+
+// ____________________________________________________________________________________
+
+
+// *****====== BRAND DETAIL SECTION ======*****
+
+// get BRAND detail API:
+document.addEventListener('DOMContentLoaded', function() {
+    brandLinks.forEach(function(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
             const productUrl = this.getAttribute('href');
