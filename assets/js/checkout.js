@@ -10,6 +10,7 @@ const totalPriceRender = document.querySelector("#total");
 const cartBox = document.querySelector(".cartBox");
 const productAmount = document.querySelectorAll("#productAmount");
 const productLinks = document.querySelectorAll('.product_link');
+const alertBox = document.querySelector('.alertBox');
 
 
 // ____________________________________________________________________________________
@@ -249,7 +250,7 @@ function checkout(event) {
     let customerList = [];
                 
     // // Ngăn chặn hành động mặc định của form
-    // event.preventDefault();
+    event.preventDefault();
                 
     const totalPriceRender = document.querySelector("#total");
     const cartBox = document.querySelector(".cartBox");
@@ -278,9 +279,11 @@ function checkout(event) {
     if(name.trim() === '' || phone.trim() === '' || email.trim() === '' || address.trim() === '' || city.trim() === "") {
         // log test
         console.log("invalid information!");
-        alert("Bạn chưa điền đầy đủ thông tin!");
+        // alert("Bạn chưa điền đầy đủ thông tin!");
+        alertBox.innerHTML = "*Bạn chưa điền đầy đủ thông tin!";
 
     } else {
+
         // Duyệt qua các input radio để kiểm tra xem có input nào được chọn không
         for (var i = 0; i < payment.length; i++) {
             if (payment[i].checked) {
@@ -297,14 +300,14 @@ function checkout(event) {
                 // Thêm object customerObj vào mảng customerList (nếu mảng chưa được khởi tạo, cần khởi tạo mảng trước đó)
                 customerList.push(customerObj);
                 // log test:
-                console.log("All Users: ", customerList);
+                // console.log("All Users: ", customerList);
 
-                // // reset cart & total price:
-                // cart = [];
-                // totalPrice = 0;
+                alertBox.innerHTML = "";
+                window.location.href = "/pages/confirmCheckout/confirmCheckout.html";
             } else {
                 console.log("invalid payment!");
-                alert("Bạn chưa chọn phương thức thanh toán!");
+                alertBox.innerHTML = "*Bạn chưa chọn phương thức thanh toán!";
+                // alert("Bạn chưa chọn phương thức thanh toán!");
             }
         }
     }

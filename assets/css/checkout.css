@@ -316,6 +316,12 @@ nav {
     margin-left: 25px;
 }
 
+.alertBox {
+    text-align: center;
+    color: #cf2631;
+}
+
+
 .checkoutForm button {
     width: 100%;
     height: 40px;
