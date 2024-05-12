@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const alertLink = document.querySelector('.emptyCartAlert a');
 
 
-    // 
+    // Check if the Cart is Empty?
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
     console.log(cart);
 
@@ -497,8 +497,6 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log("object NOT empty");
     }
-
-
 
 
     // ...
@@ -551,7 +549,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <!-- quantity container -->
                                         <div class="quantityContainer">
                                             <!-- change quantity -->
-                                            <div class="quantity">
+                                            <div class="quantity-box">
                                                 <span class="item-quantity">
                                                     <button class="minusCartBtn" onclick="minusToCart(${product.id}), pageReload()">-</button>
                                                     <p class="itemCartQuantity" dataId=${product.id}>${itemQuantity}</p>

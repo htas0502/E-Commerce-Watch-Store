@@ -746,8 +746,16 @@ nav {
     text-align: center;
 }
 
+.productCartInfo {
+    font-weight: bold;
+}
+
 .imgCartContainer img{
     width: 100%;
+}
+
+.productCartPrice {
+    color: #9f1d25;
 }
 
 .quantityBox {
@@ -757,6 +765,7 @@ nav {
 }
 .quantityBox .quantity {
     display: flex;
+    align-items: center;
 }
 .quantityBox .quantity p {
     display: flex;
@@ -765,11 +774,44 @@ nav {
     margin: 0;
     width: 30px;
 }
+
 .quantityBox .quantity button{
     width: 25px;
+    height: 25px;
+    transition: all .3s;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid #9f1d25;
+    background-color: #9f1d25;
+    cursor: pointer;
 }
+.quantity button:hover {
+    border: 1px solid #e17c83;
+    background-color: #e17c83;
+}
+
 .quantityBox .deleteCartBtn {
     width: 25px;
+    transition: all .3s;
+    border: 1px solid #000;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+}
+.quantityBox .deleteCartBtn:hover {
+    background-color: #808080;
+    border: 1px solid #808080;
+}
+
+.addCartBtn, .minusCartBtn {
+    width: 25px;
+    height: 25px;
+    transition: all .3s;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid #9f1d25;
+    background-color: #9f1d25;
+    cursor: pointer;
 }
 
 #total {
@@ -895,7 +937,6 @@ footer {
 .imgCartContainer {
     width: 132px;
     height: 132px;
-    /* background-color: #333; */
 }
 .imgCartContainer img{
     width: 100%;
@@ -916,7 +957,7 @@ footer {
 
 }
 
-.quantity {
+.quantity-box {
     display: flex;
     justify-content: start;
     width: auto;
@@ -933,6 +974,10 @@ footer {
 .item-quantity button{
     min-width: 35px;
     height: 100%;
+}
+.item-quantity button:hover {
+    border: 1px solid #e17c83;
+    background-color: #e17c83;
 }
 .item-quantity p{
     display: flex;
