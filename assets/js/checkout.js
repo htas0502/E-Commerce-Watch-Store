@@ -13,7 +13,9 @@ const productLinks = document.querySelectorAll('.product_link');
 const brandLinks = document.querySelectorAll('.brand-link');
 const innerCartBox = document.querySelector('.innerCartBox')
 
+// ...
 const itemCartQuantity = document.querySelectorAll('.itemCartQUantity');
+const alertBox = document.querySelector('.alertBox');
 
 
 let emptyCart = false;
@@ -461,19 +463,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', function() {
     // Khai báo biến...
     const innerCartBox = document.querySelector('.innerCartBox')
-    const cartItem = document.querySelectorAll('.cartItem')
-    const imgCartContainer = document.querySelector('.imgCartContainer')
-    const infoCartContainer = document.querySelector('.infoCartContainer')
-    const quantityContainer = document.querySelector('.quantityContainer')
-    const quantity = document.querySelector('.quantity')
-    const itemQuantity = document.querySelector('.item-quantity')
-    const minusCartBtn = document.querySelector('.minusCartBtn')
-    const addCartBtn = document.querySelector('.addCartBtn')
-    const itemPrice = document.querySelector('.item-price')
-    const cartItemPrice = document.querySelector('.cartItemPrice')
-    const deleteCartItem = document.querySelector('.deleteCartItem')
-    const innerCartTotalPrice = document.querySelector('.innerCartTotalPrice')
-    const coupon = document.querySelector('.coupon')
+
+
     // const preTotalPrice = document.querySelector('.preTotalPrice')
     const prePrice = document.querySelector('.pre-price')
     // const totalPrice = document.querySelector('.totalPrice')
