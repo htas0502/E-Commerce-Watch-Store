@@ -435,17 +435,17 @@ function updateCartUI(cart, productId, productName, productPrice) {
                         newDiv.classList.add('cartItem')
                         newDiv.innerHTML = `
                             <div class="imgCartContainer">
-                                <img src="${product.img}" alt="img">
+                                <img src="${dbProduct.img}" alt="img">
                             </div>
-                            <p class="productCartInfo">${product.name}</p>
-                            <p class="productCartPrice">${(product.price * quantity).toLocaleString('vi-VN')} vnd</p>
+                            <p dataId=${dbProduct.id} class="productCartInfo">${dbProduct.name}</p>
+                            <p class="productCartPrice">${(dbProduct.price * quantity).toLocaleString('vi-VN')} vnd</p>
                             <div class="quantityBox">
                                 <div class="quantity">
-                                    <button class="minusCartBtn" onclick="minusToCart(${product.id})">-</button>
+                                    <button class="minusCartBtn" onclick="minusToCart(${dbProduct.id})">-</button>
                                     <p>${quantity}</p>
-                                    <button class="addCartBtn" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">+</button>
+                                    <button class="addCartBtn" onclick="addToCart(${dbProduct.id}, '${dbProduct.name}', ${dbProduct.price})">+</button>
                                 </div>
-                                <button class="deleteCartBtn" onclick="deleteCart(${product.id})">x</button>
+                                <button class="deleteCartBtn" onclick="deleteCart(${dbProduct.id})">x</button>
                             </div>
                         `; 
                         cartItems.appendChild(newDiv);
@@ -485,7 +485,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                     .then((femaleProducts) => {
                         femaleProducts.forEach((product) => {
-                            if(product.brand === "Casio") {
+                            if(product.brand === "Casio"  && product.type === "Watch") {
                                 // log
                                 console.log(product.brand);
 
@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                     .then((femaleProducts) => {
                         femaleProducts.forEach((product) => {
-                            if(product.brand === newDiv.getAttribute("data")) {
+                            if(product.brand === newDiv.getAttribute("data")  && product.type === "Watch") {
                                 // log
                                 console.log(product.brand);
 

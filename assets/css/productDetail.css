@@ -8,9 +8,13 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100vh;
+    overflow: hidden;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
-    /* background-color: #f4f4f4; */
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
 }
 
 .hide {
@@ -26,18 +30,18 @@ body {
 }
 
 
-/* ============ HEADER ============ */
+/* ============ HEADER ============ */ 
 
 
 header {
-    /* z-index: 1000; */
-    background-color: #333;
-    color: #fff;
+    background-color: #f4f4f4;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 1px;
 }
 
 #header {
@@ -50,12 +54,13 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #333;
     min-width: 200px;
     flex-wrap: 1;
 }
 #header h1 a {
     text-decoration: none;
-    color: #fff;
+    color: #333;
 }
 
 .side-box {
@@ -68,10 +73,40 @@ header {
     align-items: center;
 }
 
+.search i {
+    width: 33.2px;
+    height: 33.2px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_container {
+    display: flex;
+}
+
 .search_container input {
     height: 28px;
     width: 200px;
 }
+
+.cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartBtn {
+    width: 33.2px;
+    height: 33.2px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Navigation */
 
 nav {
     width: 85%;
@@ -79,25 +114,34 @@ nav {
 
 .nav_container {
     display: flex;
-    justify-content: space-between;
-    height: 45px;
-    padding: 0px;
-    margin: 0;
+    justify-content: center;
     border-bottom: solid 1px #fff;
+    padding: 0px 200px;
+    height: 45px;
+    margin: 0;
 }
 .nav_container .nav_item {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.nav_container a {
-    text-decoration: none;
     color: #fff;
+    cursor: pointer;
+    margin: 0px 20px;
+    width: 120px!important;
+    height: 100%;
+}
+.nav_container .nav_item p{
+    width: 100%;
+    height: 100%;
+    border-bottom: 5px solid #f4f4f4;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100px;
-    height: 100%;
+}
+.nav_container .nav_item:hover p {
+    color: #d82834;
+    border-bottom: 5px solid #d82834;
 }
 
 /* Drop Down Box */
@@ -106,19 +150,89 @@ nav {
     height: 250px;
     z-index: 1001;
     margin-top: 145px;
-    background: #fff;
+    border-top: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+    background-color: #f4f4f4;
     position: absolute;
     float: left;
     display: none;
 }
 
-.nav_container .nav_item:hover a {
-    color: #ff0000;
-    background-color: #fff;
-    border-bottom: solid 5px #ff0000;
+.nav_info {
+    width: 100%;
+    height: 100%;
+}
+
+.brandLayout {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-box-img {
+    width: 135px;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-box-img img {
+    width: 135px;
+    height: 100%;
+    transition: .3s;
+    object-fit: cover;
+}
+.brand-box-img img:hover {
+    scale: 1.08;
+}
+
+.content-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-container a {
+    text-decoration: none;
+    color: #9f1d25;
+    font-weight: bold;
+    transition: .3s;
+}
+.content-container a:hover {
+    color: #ff6b6b;
 }
 
 /* ======== MAIN CONTAINER ======== */
+
+
+.main_container {
+    width: 100%;
+    height: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.main_view {
+    width: 100%;
+    height: auto;
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.inner_container {
+    flex: 1;
+    height: auto;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
 
 
 #productDetail {
@@ -165,12 +279,19 @@ nav {
 .cartBtn {
     display: flex;
     flex-direction: column;
+    /* margin-top: 40px; */
+}
+
+.cartBtnBox {
+    display: flex;
+    flex-direction: column;
     margin-top: 40px;
 }
 
 .addCart {
     height: 45px;
     margin-bottom: 15px;
+    cursor: pointer;
     color: #fff;
     background-color: #333;
     font-weight: bold;
@@ -182,6 +303,7 @@ nav {
 
 .buyNow {
     height: 45px;
+    cursor: pointer;
     color: #fff;
     background-color: #9f1d25;
     font-weight: bold;
@@ -201,6 +323,105 @@ nav {
 }
 
 
+/* ===== SIDEBAR ===== */
+
+.right {
+    right: 0;
+}
+
+.sidebar {
+    min-width: 250px;
+    max-width: 25%;
+    height: 100%;
+    border-left: 2px solid #9f1d25;
+    overflow-y: auto;
+    transition: ease-in 1s;
+}
+.sidebar .cartContainer {
+    margin: 16px;
+}
+
+.cartTitle {
+    margin-left: 20px;
+}
+
+.cartBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartItem {
+    width: 150px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.cartItem .imgCartContainer{
+    width: 100%;
+}
+.cartItem p{
+    text-align: center;
+}
+
+.imgCartContainer img{
+    width: 100%;
+}
+
+.quantityBox {
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+}
+.quantityBox .quantity {
+    display: flex;
+}
+.quantityBox .quantity p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 30px;
+}
+.quantityBox .quantity button{
+    width: 25px;
+}
+.quantityBox .deleteCartBtn {
+    width: 25px;
+}
+
+#total {
+    text-align: center;
+    color: #9f1d25;
+    font-weight: bold;
+}
+
+.checkoutBtn {
+    width: 100%;
+    padding: 10px 0;
+    transition: .3s;
+    cursor: pointer;
+    border: none;
+    background-color: #cf2631;
+}
+.checkoutBtn:hover {
+    background-color: #ffb5b5;
+}
+.checkoutBtn a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    transition: .3s;
+}
+.checkoutBtn:hover a{
+    color: #9f1d25;
+}
+
+
 /* ============ FOOTER ============ */
 
 
@@ -210,6 +431,7 @@ footer {
     align-items: center;
     flex-direction: column;
     background-color: #9f1d25;
+    overflow: hidden;
     width: 100%;
 }
 
@@ -242,6 +464,7 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
+    width: 100%;
     font-size: 14px;
     padding: 5px;
     bottom: 0;

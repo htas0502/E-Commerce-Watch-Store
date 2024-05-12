@@ -383,24 +383,25 @@ function updateCartUI(cart, productId, productName, productPrice) {
                         const product = productList[productId - 1];
                         totalPrice += dbProduct.price * quantity;
                         totalQuantity += quantity;
-                        console.log(totalPrice);
-                        console.log(totalQuantity);
+                        // log
+                        // console.log(totalPrice);
+                        // console.log(totalQuantity);
 
                         const newDiv = document.createElement('div');
                         newDiv.classList.add('cartItem')
                         newDiv.innerHTML = `
                             <div class="imgCartContainer">
-                                <img src="${product.img}" alt="img">
+                                <img src="${dbProduct.img}" alt="img">
                             </div>
-                            <p class="productCartInfo">${product.name}</p>
-                            <p class="productCartPrice">${(product.price * quantity).toLocaleString('vi-VN')} vnd</p>
+                            <p dataId=${dbProduct.id} class="productCartInfo">${dbProduct.name}</p>
+                            <p class="productCartPrice">${(dbProduct.price * quantity).toLocaleString('vi-VN')} vnd</p>
                             <div class="quantityBox">
                                 <div class="quantity">
-                                    <button class="minusCartBtn" onclick="minusToCart(${product.id})">-</button>
+                                    <button class="minusCartBtn" onclick="minusToCart(${dbProduct.id})">-</button>
                                     <p>${quantity}</p>
-                                    <button class="addCartBtn" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">+</button>
+                                    <button class="addCartBtn" onclick="addToCart(${dbProduct.id}, '${dbProduct.name}', ${dbProduct.price})">+</button>
                                 </div>
-                                <button class="deleteCartBtn" onclick="deleteCart(${product.id})">x</button>
+                                <button class="deleteCartBtn" onclick="deleteCart(${dbProduct.id})">x</button>
                             </div>
                         `; 
                         cartItems.appendChild(newDiv);
@@ -557,10 +558,10 @@ function generateProductCards() {
                 maleProducts.forEach((product) => {
                     let vndPrice = product.price.toLocaleString('vi-VN');
                     // log test
-                    console.log(product.id);
+                    // console.log(product.id);
 
                     if((product.id % 2 == 0) && (product.id % 5 == 0)) {
-                        if(product.gender === "male") {
+                        if(product.gender === "male" && product.type === "Watch") {
                             const card = document.createElement('div');
                             card.classList.add('product_card');
                             card.innerHTML = `
@@ -569,7 +570,7 @@ function generateProductCards() {
                                         <img class="main_img" src=${product.img} alt="main-image" />
                                         <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
                                     </a>
-                                    <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4>${product.name}</h4></a>
+                                    <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4 dataId=${product.id}>${product.name}</h4></a>
                                 </span>
                                 <span class="priceAndCart">
                                     <p>Giá: ${vndPrice} vnd</p>
@@ -600,7 +601,7 @@ function generateProductCards() {
                     let vndPrice = product.price.toLocaleString('vi-VN');
 
                     if((product.id % 2 == 0) && (product.id % 5 == 0)) {
-                        if(product.gender === "female") {
+                        if(product.gender === "female" && product.type === "Watch") {
                             const card = document.createElement('div');
                             card.classList.add('product_card');
                             card.innerHTML = `
@@ -609,7 +610,7 @@ function generateProductCards() {
                                     <img class="main_img" src=${product.img} alt="main-image" />
                                     <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
                                 </a>
-                                <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4>${product.name}</h4></a>
+                                <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4 dataId=${product.id}>${product.name}</h4></a>
                             </span>
                             <span class="priceAndCart">
                                 <p>Giá: ${vndPrice} vnd</p>
@@ -629,7 +630,7 @@ function generateProductCards() {
 
     // get accessories API:
     function getAccessoryProducts() {
-        const accessoryApi = "http://localhost:3000/accessories";
+        const accessoryApi = "http://localhost:3000/products";
         fetch(accessoryApi)
             .then((response) => {
                 // JSON.parse:  JSON --> JS type
@@ -637,18 +638,30 @@ function generateProductCards() {
             })
             .then((accessories) => {
                 accessories.forEach((product) => {
-                    const card = document.createElement('div');
-                    card.classList.add('product_card');
-                    card.innerHTML = `
-                        <a class="product_link" href="/pages/productDetail/productDetail.html"class="img_container">
-                            <img class="main_img" src=${product.img} alt="main-image" />
-                            <img class="alt_img" src=${product.altImg} alt="alt-image" />
-                        </a>
-                        <a class="product_link" href="/pages/productDetail/productDetail.html"><h2>${product.name} ${product.id}</h2></a>
-                        <p>Price: $${product.price}</p>
-                        <button>Add to Cart</button>
-                    `;
-                    accessoriesCollection.appendChild(card);
+                    let vndPrice = product.price.toLocaleString('vi-VN');
+
+                    if((product.id % 2 == 0)) {
+                        if(product.type === "accessory") {
+                            const card = document.createElement('div');
+                            card.classList.add('product_card');
+                            card.innerHTML = `
+                                <span class="imgAndInfo">
+                                    <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
+                                        <img class="main_img" src=${product.img} alt="main-image" />
+                                        <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
+                                    </a>
+                                    <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4 dataId=${product.id}>${product.name}</h4></a>
+                                </span>
+                                <span class="priceAndCart">
+                                    <p>Giá: ${vndPrice} vnd</p>
+                                    <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
+                                </span>
+                            `;
+
+                            // render HTML
+                            accessoriesCollection.appendChild(card);
+                        }
+                    }
                 })
             })
             .catch((err) => {
