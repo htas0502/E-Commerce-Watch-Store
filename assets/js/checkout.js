@@ -396,12 +396,6 @@ function updateCartUI(cart, productId, productName, productPrice) {
                         // console.log(totalPrice);
                         // console.log(totalQuantity);
 
-                        // ...
-                        if(totalQuantity == 0) {
-                            emptyCart = true;
-                        }
-                        console.log("Empty Cart: ", emptyCart);
-
                         const newDiv = document.createElement('div');
                         newDiv.classList.add('cartItem')
                         newDiv.innerHTML = `
@@ -439,10 +433,7 @@ function pageReload() {
     let cart = JSON.parse(localStorage.getItem('cart')) || {}; // Lấy giỏ hàng từ localStorage
     console.log(cart);
 
-    if(cart == {}) {
-        console.log("empty cart!");
-    }
-
+    // reload
     location.reload();
 }
 
@@ -459,11 +450,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // *****====== CHECKOUT SECTION ======*****
 
 
-// Render Cart Items:
+// ===== Render Cart Items =====
 document.addEventListener('DOMContentLoaded', function() {
     // Khai báo biến...
     const innerCartBox = document.querySelector('.innerCartBox')
+    let customerList = JSON.parse(localStorage.getItem('customerList')) || [];
 
+    // console.log("type of customerList: ", typeof(customerList));
+    console.log("Array of customerList: ", Array(customerList));
 
     // const preTotalPrice = document.querySelector('.preTotalPrice')
     const prePrice = document.querySelector('.pre-price')
@@ -478,8 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Check if the Cart is Empty?
     let cart = JSON.parse(localStorage.getItem('cart')) || {};
-    console.log(cart);
-
+    // console.log(cart);
     if(Object.keys(cart).length === 0) {
         console.log("object empty");
 
@@ -493,10 +486,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ...
     const cartItemIds = Object.keys(cart);
     const cartItemQuantities = Object.values(cart);
-
-    // log test
-    // console.log(cartItemIds);
-    // console.log(cartItemQuantities);
 
 
     // ...
@@ -523,7 +512,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                     let productPrice = product.price * itemQuantity;
                                     totalPrice += productPrice;
                                     
-                                    console.log("totalPrice: ", totalPrice);
+                                    // log test
+                                    // console.log("totalPrice: ", totalPrice);
 
                                     // ...
                                     const newDiv = document.createElement('div');
@@ -570,17 +560,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
             });
 });
-// === Pay Checkout ===
+
+
+// ===== Pay Checkout =====
 function checkout(event) {
-    let customerList = [];
-                
-    // // Ngăn chặn hành động mặc định của form
+    // let customerList = [];
+    // const customerList = JSON.parse(localStorage.getItem('customerList')) || [];
+
+
+    // // Ngăn chặn hành động mặc định của form:
     event.preventDefault();
-                
-    const totalPriceRender = document.querySelector("#total");
-    const cartBox = document.querySelector(".cartBox");
-                
-                
+
+
     // user info declared:
     var name = document.getElementById('name').value;
     var phone = document.getElementById('phone').value;
@@ -589,9 +580,9 @@ function checkout(event) {
     var city = document.getElementById('city').value;
     var payment = document.getElementsByName('payment');
 
-                
+
     // Tạo một object mới chứa thông tin khách hàng:
-    var customerObj = {
+    const customerObj = {
         name: name,
         phone: phone,
         email: email,
@@ -600,57 +591,44 @@ function checkout(event) {
     }; 
     
     
-
+    // Event Handler
     if(name.trim() === '' || phone.trim() === '' || email.trim() === '' || address.trim() === '' || city.trim() === "") {
         // log test
         console.log("invalid information!");
-        // alert("Bạn chưa điền đầy đủ thông tin!");
         alertBox.innerHTML = "*Bạn chưa điền đầy đủ thông tin!";
 
     } else {
 
-        // Duyệt qua các input radio để kiểm tra xem có input nào được chọn không
+        // Duyệt qua các input radio để kiểm tra xem có input nào được chọn không?
         for (var i = 0; i < payment.length; i++) {
             if (payment[i].checked) {
-                // log test
-                console.log("form validated!");
 
-
+                // get cart
                 const cart = JSON.parse(localStorage.getItem('cart')) || {};
                 localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
 
-                // log test:
-                console.log("Cart before checkout: ", cart);
-
-                // Thêm object customerObj vào mảng customerList (nếu mảng chưa được khởi tạo, cần khởi tạo mảng trước đó)
+                // get customers
+                const customerList = JSON.parse(localStorage.getItem('customerList')) || [];
+                // update Customer List
                 customerList.push(customerObj);
-                // log test:
-                // console.log("All Users: ", customerList);
+                console.log("new Array of customerList: ", Array(customerList));
+                localStorage.setItem('customerList', JSON.stringify(customerList));
 
+                // render HTML
                 alertBox.innerHTML = "";
                 window.location.href = "/pages/confirmCheckout/confirmCheckout.html";
             } else {
                 console.log("invalid payment!");
                 alertBox.innerHTML = "*Bạn chưa chọn phương thức thanh toán!";
-                // alert("Bạn chưa chọn phương thức thanh toán!");
             }
         }
     }
-    
-                
-    // const cart = JSON.parse(localStorage.getItem('cart')) || {};
-    // localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
-                
-    // // log test:
-    // console.log("Cart before checkout: ", cart);
-                
+
+
     // // Thêm object customerObj vào mảng customerList (nếu mảng chưa được khởi tạo, cần khởi tạo mảng trước đó)
     // customerList.push(customerObj);
     // // log test:
     // console.log("All Users: ", customerList);
-                
-    // // reset cart & total price:
-    // alert(`Total amount to pay: ${totalPrice} $ \nThank you for your purchase!`);
-    // cart = [];
-    // totalPrice = 0;
+    // customerList.push(customerObj);
+    // localStorage.setItem('customerList', JSON.stringify(customerObj));
 };
