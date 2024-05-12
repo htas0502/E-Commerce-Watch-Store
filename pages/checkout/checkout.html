@@ -7,7 +7,7 @@
     <!-- Boxicon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- css -->
-    <link rel="stylesheet" href="/assets/css/checkout.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <title>Checkout - Thanh Toán</title>
 </head>
 <body>
@@ -48,145 +48,153 @@
     </header>
 
 
-    <div class="space"></div>
+    <!-- ================ MAIN CONTAINER ================ -->
+    <div class="main_container">
+        <div class="main_view">
+            <!-- Products Container -->
+            <div class="inner_container">
 
 
-    <!-- ================ CHECKOUT SECTION ================ -->
-    <section class="mainContainer">
-        <!-- Cart -->
-        <section class="container cartContainer">
+                <div class="space"></div>
+        
 
-            <h2>THÔNG TIN SẢN PHẨM</h2>
-
-            <div class="innerCartBox">
-                <!-- cart item -->
-                <!-- <div class="cartItem">
-                    
-                </div> -->
-            </div>
-
-            <div class="innerCartTotalPrice">
-                <div class="coupon">
-                    <h4>Phiếu ưu đãi</h4>
-                </div>
-                <div class="preTotalPrice">
-                    <p>Tạm tính</p>
-                    <p class="pre-price"></p>
-                </div>
-                <div class="totalPrice">
-                    <h4>Tổng</h4>
-                    <h4 class="price"></h4>
-                </div>
-            </div>
-        </section>
+                <!-- ======== CHECKOUT SECTION ======== -->
+                <div id="checkout-payment">
+                    <!-- Cart -->
+                    <section class="container cartCheckoutContainer">
     
-        <!-- Form -->
-        <section class="container checkoutForm">
-
-            <h2>THÔNG TIN KHÁCH HÀNG</h2>
-
-            <section class="formGroup">
-                <div class="group">
-                    <input placeholder="Tên khách hàng" type="text" name="name" id="name">
+                        <h2>THÔNG TIN SẢN PHẨM</h2>
+    
+                        <div class="innerCartBox">
+                            <!-- cart item -->
+                            <!-- <div class="cartItem">
+                                
+                            </div> -->
+                        </div>
+    
+                        <div class="innerCartTotalPrice">
+                            <div class="emptyCartAlert">
+                                <p></p>
+                                <a href="/index.html"></a>
+                            </div>
+                            <div class="coupon">
+                                <h4>Phiếu ưu đãi</h4>
+                            </div>
+                            <div class="preTotalPrice">
+                                <p>Tạm tính</p>
+                                <p class="pre-price">0</p>
+                            </div>
+                            <div class="totalPrice">
+                                <h4>Tổng</h4>
+                                <h4 class="price">0</h4>
+                            </div>
+                        </div>
+                    </section>
+                
+                    <!-- Form -->
+                    <section class="container checkoutForm">
+    
+                        <h2>THÔNG TIN KHÁCH HÀNG</h2>
+    
+                        <section class="formGroup">
+                            <div class="group">
+                                <input placeholder="Tên khách hàng" type="text" name="name" id="name">
+                            </div>
+                            <div class="group">
+                                <input placeholder="Số điện thoại" type="text" name="phone" id="phone">
+                            </div>
+                            <div class="group">
+                                <input placeholder="Email" type="text" name="email" id="email">
+                            </div>
+                        </section>
+    
+                        <h2>THÔNG TIN NHẬN HÀNG</h2>
+    
+                        <section class="formGroup">
+                            <div class="group">
+                                <label for="">Thành phố</label>
+                                <br>
+                                <select name="city" id="city">
+                                    <option value="">Chọn thành phố...</option>
+                                    <option value="hcmc">Ho Chi Minh</option>
+                                    <option value="hanoi">Ha Noi</option>
+                                    <option value="danang">Da Nang</option>
+                                    <option value="nhatrang">Nha Trang</option>
+                                    <option value="thanhhoa">Thanh Hoa</option>
+                                    <option value="cantho">Can Tho</option>
+                                </select>
+                            </div>
+                            <div class="group">
+                                <input placeholder="Địa chỉ" type="text" name="address" id="address">
+                            </div>
+                        </section>
+    
+                        <h2>PHƯƠNG THỨC THANH TOÁN</h2>
+    
+                        <div class="group pay-method">
+                            <input type="radio" name="payment" id="payment">
+                            <label for="">Chuyển Khoản Ngân Hàng</label>
+                            <p>Chuyển Khoản Ngân Hàng</p>
+                        </div>
+                        <div class="group pay-method">
+                            <input type="radio" name="payment" id="payment">
+                            <label for="">Thanh Toán Khi Nhận Hàng</label>
+                            <p>Thanh Toán Khi Nhận Hàng</p>
+                        </div>
+                        <div class="group pay-method">
+                            <input type="radio" name="payment" id="payment">
+                            <label for="">Thanh Toán Bằng MoMo</label>
+                            <p>Thanh Toán Bằng MoMo</p>
+                        </div>
+                        <div class="group pay-method">
+                            <input type="radio" name="payment" id="payment">
+                            <label for="">Thanh Toán Bằng VNPay</label>
+                            <p>Thanh Toán Bằng VNPay</p>
+                        </div>
+    
+                        <div class="space"></div>
+    
+                        <p class="alertBox"></p>
+    
+                        <!-- Checkout Btn -->
+                        <button onclick="checkout(event)">
+                            <a href="/pages/confirmCheckout/confirmCheckout.html">Thanh Toán</a>
+                        </button>
+                    </section>
                 </div>
-                <div class="group">
-                    <input placeholder="Số điện thoại" type="text" name="phone" id="phone">
-                </div>
-                <div class="group">
-                    <input placeholder="Email" type="text" name="email" id="email">
-                </div>
-            </section>
 
-            <h2>THÔNG TIN NHẬN HÀNG</h2>
+                <div class="space"></div>
 
-            <section class="formGroup">
-                <div class="group">
-                    <label for="">Thành phố</label>
-                    <br>
-                    <select name="city" id="city">
-                        <option value="">Chọn thành phố...</option>
-                        <option value="hcmc">Ho Chi Minh</option>
-                        <option value="hanoi">Ha Noi</option>
-                        <option value="danang">Da Nang</option>
-                        <option value="nhatrang">Nha Trang</option>
-                        <option value="thanhhoa">Thanh Hoa</option>
-                        <option value="cantho">Can Tho</option>
-                    </select>
-                </div>
-                <div class="group">
-                    <input placeholder="Địa chỉ" type="text" name="address" id="address">
-                </div>
-            </section>
-
-            <h2>PHƯƠNG THỨC THANH TOÁN</h2>
-
-            <div class="group pay-method">
-                <input type="radio" name="payment" id="payment">
-                <label for="">Chuyển Khoản Ngân Hàng</label>
-                <p>Chuyển Khoản Ngân Hàng</p>
-            </div>
-            <div class="group pay-method">
-                <input type="radio" name="payment" id="payment">
-                <label for="">Thanh Toán Khi Nhận Hàng</label>
-                <p>Thanh Toán Khi Nhận Hàng</p>
-            </div>
-            <div class="group pay-method">
-                <input type="radio" name="payment" id="payment">
-                <label for="">Thanh Toán Bằng MoMo</label>
-                <p>Thanh Toán Bằng MoMo</p>
-            </div>
-            <div class="group pay-method">
-                <input type="radio" name="payment" id="payment">
-                <label for="">Thanh Toán Bằng VNPay</label>
-                <p>Thanh Toán Bằng VNPay</p>
-            </div>
-
-            <div class="space"></div>
-
-            <p class="alertBox"></p>
-
-            <!-- Checkout Btn -->
-            <button onclick="checkout(event)">
-                <a href="/pages/confirmCheckout/confirmCheckout.html">Thanh Toán</a>
-            </button>
-        </section>
+                <!-- Social Media -->
+                <h2 class="collection-title">
+                    KẾT NỐI VỚI CHÚNG TÔI
+                </h2>
+                <section class="social_media_container">
+                    <div class="inner_layout inner_social_media">
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/08/fb.png" alt="facebook">
+                        </div>
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/08/it.png" alt="instagram">
+                        </div>
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/yt.png" alt="youtube">
+                        </div>
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/tt.png" alt="tiktok">
+                        </div>
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/tw.png" alt="x">
+                        </div>
+                    </div>
+                </section>
 
 
-        <div class="space"></div>
+                <div class="space"></div>
 
-
-    </section>
-
-    <!-- Social Media -->
-    <h2 class="collection-title">
-        KẾT NỐI VỚI CHÚNG TÔI
-    </h2>
-    <section class="social_media_container">
-        <div class="inner_layout inner_social_media">
-            <div class="social_media">
-                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/08/fb.png" alt="facebook">
-            </div>
-            <div class="social_media">
-                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/08/it.png" alt="instagram">
-            </div>
-            <div class="social_media">
-                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/yt.png" alt="youtube">
-            </div>
-            <div class="social_media">
-                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/tt.png" alt="tiktok">
-            </div>
-            <div class="social_media">
-                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/tw.png" alt="x">
-            </div>
-        </div>
-    </section>
-
-
-    <div class="space"></div>
-
-
-    <!-- ================ FOOTER ================ -->
-    <footer>
+                
+                <!-- ================ FOOTER ================ -->
+                <footer>
                     <div class="footer_wrapper">
                         <div class="column-item">
                             <h3>CHÍNH SÁCH</h3>
@@ -235,8 +243,16 @@
                     <div class="footer_para">
                         &copy; 2024 E-Commerce Watch Store. All rights reserved.
                     </div>
-    </footer>
-
+                </footer>
+            </div>
+    
+            <!-- Cart Sidebar -->
+            <div class="sidebar right hide">
+                <div class="cartContainer">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- script -->
     <script src="/assets/js/checkout.js"></script>
