@@ -2,7 +2,7 @@
 
 // Khai báo các BIẾN:  
 const navContainer = document.querySelector('.nav_container');
-const productContainer = document.querySelector('.productContainer');
+const productContainer = document.querySelector('.product_container');
 const cartBtn = document.querySelector('.cartBtn');
 const sidebar = document.querySelector('.sidebar');
 const deleteCartBtn = document.querySelectorAll('.deleteCart');
@@ -11,6 +11,51 @@ const cartBox = document.querySelector(".cartBox");
 const productAmount = document.querySelectorAll("#productAmount");
 const productLinks = document.querySelectorAll('.product_link');
 const brandLinks = document.querySelectorAll('.brand-link');
+const allProductContainer = document.querySelector('.all_collection');
+
+
+const brandList = [
+    {
+        id: 1,
+        title: "Casio",
+    },
+    {
+        id: 2,
+        title: "Citizen",
+    },
+    {
+        id: 3,
+        title: "Doxa",
+    },
+    {
+        id: 4,
+        title: "DW",
+    },
+    {
+        id: 5,
+        title: "Fossil",
+    },
+    {
+        id: 6,
+        title: "G-Shock",
+    },
+    {
+        id: 7,
+        title: "Longines",
+    },
+    {
+        id: 8,
+        title: "Orient",
+    },
+    {
+        id: 9,
+        title: "Seiko",
+    },
+    {
+        id: 10,
+        title: "Tissot",
+    },
+];
 
 
 // ____________________________________________________________________________________
@@ -146,6 +191,70 @@ function renderHeader() {
         `
         },
     ];
+
+    // Brand Container:
+    const brandList = [
+        {
+            id: 1,
+            title: "Casio",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Citizen",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Doxa",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "DW",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Fossil",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "G-Shock",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Longines",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Orient",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Seiko",
+            img: "",
+            link: "",
+        },
+        {
+            id: 1,
+            title: "Tissot",
+            img: "",
+            link: "",
+        },
+    ];
     
     navTitle.map(nav => {
         const navItem = document.createElement('div');
@@ -164,8 +273,7 @@ function renderHeader() {
                 dropDown.classList.add("hide");
                 dropDown.classList.remove("show");
             }
-        });
-
+        })
         navItem.addEventListener("mouseover", () => {
             dropDownInfo.forEach(info => {
                 if(info.id == nav.id) {
@@ -191,9 +299,10 @@ function renderHeader() {
                         newDiv.innerHTML = `${info.info}`;
                         dropDown.appendChild(newDiv);
                     }
-                };
-            });
-        });
+
+                }
+            })
+        })
     })
 };
 renderHeader();
@@ -319,9 +428,8 @@ function updateCartUI(cart, productId, productName, productPrice) {
                         const product = productList[productId - 1];
                         totalPrice += dbProduct.price * quantity;
                         totalQuantity += quantity;
-                        // log
-                        // console.log(totalPrice);
-                        // console.log(totalQuantity);
+                        console.log(totalPrice);
+                        console.log(totalQuantity);
 
                         const newDiv = document.createElement('div');
                         newDiv.classList.add('cartItem')
@@ -360,287 +468,110 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartUI(cart);
 });
 
-
 // ____________________________________________________________________________________
 
 
 // *****====== MAIN CONTAINER ======*****
 
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 
+    function get1stBrandProduct() {
+        const allProductsApi = "http://localhost:3000/products";
+                fetch(allProductsApi)
+                    .then((response) => {
+                        // JSON.parse:  JSON --> JS type
+                        return response.json();
+                    })
+                    .then((products) => {
+                        products.forEach((product) => {
+                            if(product.brand === "Casio" && product.type === "Watch") {
+                                // log
+                                console.log(product.brand);
 
-// Layout Navigation:
-
-const layoutNavList_1 = [
-    {
-        id: 1,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/dong-ho-xa-cu.jpg",
-        title: "Đồng hồ thời trang xà cừ",
-    },
-    {
-        id: 2,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/dong-ho-phien-ban-gioi-han.jpg",
-        title: "Phiên bản giới hạn",
-    },
-    {
-        id: 3,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/dong-ho-sieu-mong.jpg",
-        title: "Mặt số siêu mỏng",
-    },
-    {
-        id: 4,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/dong-ho-skeleton-1.jpg",
-        title: "Đồng hồ Skeleton",
-    },
-    {
-        id: 5,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/dong-ho-vang-18k-1.jpg",
-        title: "Đồng hồ cao cấp vàng 18k",
-    },
-    {
-        id: 6,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/dong-ho-vat-lieu-quy-hiem.jpg",
-        title: "Đá quý – Vật liệu hiếm",
-    },
-];
-const layoutNavList_2 = [
-    {
-        id: 1,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/day-da-hirsch.jpg",
-        title: "Dây da Hirsch",
-    },
-    {
-        id: 2,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/dong-ho-dinh-kim-cuong.jpg",
-        title: "Đính kim cương",
-    },
-    {
-        id: 3,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/kinh-hai-trieu-1.jpg",
-        title: "Kính Hải Triều",
-    },
-    {
-        id: 4,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/vi-da.jpg",
-        title: "Ví da thật",
-    },
-    {
-        id: 5,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/day-da-that.jpg",
-        title: "Dây da đồng hồ",
-    },
-    {
-        id: 6,
-        img: "https://image.donghohaitrieu.com/wp-content/uploads/2023/10/trang-suc-dep.jpg",
-        title: "Trang sức",
-    },
-];
-
-function getLayoutNav() {
-    const layoutNavRow_1 = document.querySelector(".row-1");
-    const layoutNavRow_2 = document.querySelector(".row-2");
-
-    // layout Nav Row 1
-    layoutNavList_1.forEach(item => {
-        const layoutNavItem = document.createElement('div');
-        layoutNavItem.classList.add('layout_nav-item');
-        layoutNavItem.innerHTML = `
-            <div>
-                <div class="img-cover">
-                    <img src=${item.img} alt="img">
-                </div>
-                <div class="nav_text-box">
-                    <p>${item.title}</p>
-                </div>
-            </div>
-        `;
-        layoutNavRow_1.appendChild(layoutNavItem);
-    });
-
-    // layout Nav Row 2
-    layoutNavList_2.forEach(item => {
-        const layoutNavItem = document.createElement('div');
-        layoutNavItem.classList.add('layout_nav-item');
-        layoutNavItem.innerHTML = `
-            <div>
-                <div class="img-cover">
-                    <img src=${item.img} alt="img">
-                </div>
-                <div class="nav_text-box">
-                    <p>${item.title}</p>
-                </div>
-            </div>
-        `;
-        layoutNavRow_2.appendChild(layoutNavItem);
-    });
-}
-getLayoutNav()
-
-
-// Product Container:
-// Function to dynamically generate product cards:
-function generateProductCards() {
-    const maleProductContainer = document.querySelector('.male_collection');
-    const femaleProductContainer = document.querySelector('.female_collection');
-    const accessoriesCollection = document.querySelector('.accessories_collection');
-
-    // get male products API:
-    function getMaleProducts() {
-        const maleProductsApi = "http://localhost:3000/products";
-        fetch(maleProductsApi)
-            .then((response) => {
-                // JSON.parse:  JSON --> JS type
-                return response.json();
-            })
-            .then((maleProducts) => {
-                maleProducts.forEach((product) => {
-                    let vndPrice = product.price.toLocaleString('vi-VN');
-                    // log test
-                    // console.log(product.id);
-
-                    if((product.id % 2 == 0) && (product.id % 5 == 0)) {
-                        if(product.gender === "male" && product.type === "Watch") {
-                            const card = document.createElement('div');
-                            card.classList.add('product_card');
-                            card.innerHTML = `
-                                <span class="imgAndInfo">
-                                    <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
-                                        <img class="main_img" src=${product.img} alt="main-image" />
-                                        <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
-                                    </a>
-                                    <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4 dataId=${product.id}>${product.name}</h4></a>
-                                </span>
-                                <span class="priceAndCart">
-                                    <p>Giá: ${vndPrice} vnd</p>
-                                    <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
-                                </span>
-                            `;
-                            maleProductContainer.appendChild(card);
-                        }
-                    }
-                })
-            })
-            .catch((err) => {
-                console.log("Error! Unable to respond API.");
-            })
+                                if(product.gender) {
+                                    let vndPrice = product.price.toLocaleString('vi-VN')
+        
+                                    const card = document.createElement('div');
+                                    card.classList.add('product_card');
+                                    card.innerHTML = `
+                                        <span class="imgAndInfo">
+                                            <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
+                                                <img class="main_img" src=${product.img} alt="main-image" />
+                                                <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
+                                            </a>
+                                            <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4>${product.name}</h4></a>
+                                        </span>
+                                        <span class="priceAndCart">
+                                            <p>Giá: ${vndPrice} vnd</p>
+                                            <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
+                                        </span>
+                                    `;
+                                    allProductContainer.appendChild(card);
+                                }
+                            }
+                        })
+                    })
     }
-    getMaleProducts();
+    get1stBrandProduct()
 
-    // get female products API:
-    function getFemaleProducts() {
-        const femaleProductsApi = "http://localhost:3000/products";
-        fetch(femaleProductsApi)
-            .then((response) => {
-                // JSON.parse:  JSON --> JS type
-                return response.json();
-            })
-            .then((femaleProducts) => {
-                femaleProducts.forEach((product) => {
-                    let vndPrice = product.price.toLocaleString('vi-VN');
+    // get Brand Menu:
+    function getBrandMenu() {
+        const brandMenuHtml = document.querySelector('.brand-menu');
+    
+        brandList.forEach(brand => {
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('menu-item');
+            newDiv.setAttribute("data", `${brand.title}`)
+            newDiv.innerHTML = `
+                <p class="brand-select" data="${brand.title}">${brand.title}</p>
+            `;
+            brandMenuHtml.appendChild(newDiv);
 
-                    if((product.id % 2 == 0) && (product.id % 5 == 0)) {
-                        if(product.gender === "female" && product.type === "Watch") {
-                            const card = document.createElement('div');
-                            card.classList.add('product_card');
-                            card.innerHTML = `
-                            <span class="imgAndInfo">
-                                <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
-                                    <img class="main_img" src=${product.img} alt="main-image" />
-                                    <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
-                                </a>
-                                <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4 dataId=${product.id}>${product.name}</h4></a>
-                            </span>
-                            <span class="priceAndCart">
-                                <p>Giá: ${vndPrice} vnd</p>
-                                <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
-                            </span>
-                        `;
-                            femaleProductContainer.appendChild(card);
-                        }
-                    }
-                })
+            // Click Handler:
+            newDiv.addEventListener("click", () => {
+                // log
+                // console.log(newDiv.getAttribute("data"));
+                allProductContainer.innerHTML = '';
+
+
+                const productsApi = "http://localhost:3000/products";
+                fetch(productsApi)
+                    .then((response) => {
+                        // JSON.parse:  JSON --> JS type
+                        return response.json();
+                    })
+                    .then((products) => {
+                        products.forEach((product) => {
+                            if(product.brand === newDiv.getAttribute("data")  && product.type === "Watch") {
+                                // log
+                                console.log(product.brand);
+
+                                if(product.gender) {
+                                    let vndPrice = product.price.toLocaleString('vi-VN')
+        
+                                    const card = document.createElement('div');
+                                    card.classList.add('product_card');
+                                    card.innerHTML = `
+                                        <span class="imgAndInfo">
+                                            <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
+                                                <img class="main_img" src=${product.img} alt="main-image" />
+                                                <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
+                                            </a>
+                                            <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4>${product.name}</h4></a>
+                                        </span>
+                                        <span class="priceAndCart">
+                                            <p>Giá: ${vndPrice} vnd</p>
+                                            <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
+                                        </span>
+                                    `;
+                                    allProductContainer.appendChild(card);
+                                }
+                            }
+                        })
+                    })
             })
-            .catch((err) => {
-                console.log("Error! Unable to respond API.");
-            })
+        })
     }
-    getFemaleProducts();
-
-    // get accessories API:
-    function getAccessoryProducts() {
-        const accessoryApi = "http://localhost:3000/products";
-        fetch(accessoryApi)
-            .then((response) => {
-                // JSON.parse:  JSON --> JS type
-                return response.json();
-            })
-            .then((accessories) => {
-                accessories.forEach((product) => {
-                    let vndPrice = product.price.toLocaleString('vi-VN');
-
-                    if((product.id % 2 == 0)) {
-                        if(product.type === "accessory") {
-                            const card = document.createElement('div');
-                            card.classList.add('product_card');
-                            card.innerHTML = `
-                                <span class="imgAndInfo">
-                                    <a class="product_link img_container" href="/pages/productDetail/productDetail.html?id=${product.id}">
-                                        <img class="main_img" src=${product.img} alt="main-image" />
-                                        <img class="alt_img" src=${product.altImg_1} alt="alt-image" />
-                                    </a>
-                                    <a class="product_link" href="/pages/productDetail/productDetail.html?id=${product.id}"><h4 dataId=${product.id}>${product.name}</h4></a>
-                                </span>
-                                <span class="priceAndCart">
-                                    <p>Giá: ${vndPrice} vnd</p>
-                                    <button dataKey=${product.id} onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Thêm vào giỏ hàng</button>
-                                </span>
-                            `;
-
-                            // render HTML
-                            accessoriesCollection.appendChild(card);
-                        }
-                    }
-                })
-            })
-            .catch((err) => {
-                console.log("Error! Unable to respond API.");
-            })
-    }
-    getAccessoryProducts();
-}
-// Call the function to generate product cards when the page loads:
-document.addEventListener('DOMContentLoaded', generateProductCards);
-
-
-// ____________________________________________________________________________________
-
-
-// *****====== PRODUCT DETAIL SECTION ======*****
-
-// get product detail API:
-document.addEventListener('DOMContentLoaded', function() {
-    productLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
-            const productUrl = this.getAttribute('href');
-            window.location.href = productUrl; // Chuyển hướng đến trang chi tiết sản phẩm
-        });
-    });
-});
-
-
-// ____________________________________________________________________________________
-
-
-// *****====== BRAND DETAIL SECTION ======*****
-
-// get BRAND detail API:
-document.addEventListener('DOMContentLoaded', function() {
-    brandLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định của liên kết
-            const productUrl = this.getAttribute('href');
-            window.location.href = productUrl; // Chuyển hướng đến trang chi tiết sản phẩm
-        });
-    });
-});
-
-
+    getBrandMenu();
+})

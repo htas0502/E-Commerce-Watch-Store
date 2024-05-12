@@ -469,7 +469,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>${product.description}</p>
                             <div class="cartBtnBox">
                                 <button class="addCart" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">THÊM VÀO GIỎ HÀNG</button>
-                                <button class="buyNow" >MUA NGAY</button>
+                                <button class="buyNow">
+                                    <a href="/pages/checkout/checkout.html" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">MUA NGAY</a>
+                                </button>
                             </div>
                         </div>
                     </div>

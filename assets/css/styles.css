@@ -67,6 +67,24 @@ header {
     width: 400px;
 }
 
+.dashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.dashboard a {
+    text-decoration: none;
+    color: #333;
+    transition: all .3s;
+}
+.dashboard a:hover {
+    text-decoration: none;
+    color: #d82834;
+}
+
 .search {
     display: flex;
     justify-content: end;

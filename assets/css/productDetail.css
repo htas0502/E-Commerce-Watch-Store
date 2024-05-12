@@ -309,6 +309,10 @@ nav {
     font-weight: bold;
     border: none;
 }
+.buyNow a {
+    text-decoration: none;
+    color: #fff;
+}
 .buyNow:hover {
     background-color: #700a11;
 }
