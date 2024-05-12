@@ -25,34 +25,34 @@ function renderHeader() {
     const navTitle = [ 
         {
             id: 1,
-            title: "Thương Hiệu",
+            title: "THƯƠNG HIỆU",
             link: "/pages/brand/brand.html",
         }, 
         {
             id: 2,
-            title: "Nam",
+            title: "NAM",
             link: "/pages/male/male.html",
         }, 
         {
             id: 3,
-            title: "Nữ",
+            title: "NỮ",
             link: "/pages/female/female.html",
         }, 
         {
             id: 4,
-            title: "Phụ Kiện",
+            title: "PHỤ KIỆN",
             link: "/pages/accessory/accessory.html",
         }, 
         {
             id: 5,
-            title: "Liên Hệ",
+            title: "LIÊN HỆ",
             link: "/pages/info/info.html",
         },
     ];
     const dropDownInfo = [
         {
             id: 1,
-            title: "Thương Hiệu",
+            title: "THƯƠNG HIỆU",
             info: `
                 <div class="brandLayout">
                     <div class="brand-box-img">
@@ -112,23 +112,39 @@ function renderHeader() {
         },
         {
             id: 2,
-            title: "Nam",
-            info: `Các sản phẩm dành cho Nam...`
+            title: "NAM",
+            info: `
+                <div class="content-container">
+                    <a href='/pages/male/male.html'>CÁC SẢN PHẨM DÀNH CHO NAM</a>
+                </div>
+            `
         },
         {
             id: 3,
-            title: "Nữ",
-            info: `Thương hiệu nổi tiếng cho Nữ...`
+            title: "NỮ",
+            info: `
+            <div class="content-container">
+                <a href='/pages/female/female.html'>CÁC SẢN PHẨM DÀNH CHO NỮ</a>
+            </div>
+        `
         },
         {
             id: 4,
-            title: "Phụ Kiện",
-            info: `Mua phụ kiện đeee!`
+            title: "PHỤ KIỆN",
+            info: `
+            <div class="content-container">
+                <a href='/pages/accessory/accessory.html'>PHỤ KIỆN CHO NAM & NỮ</a>
+            </div>
+        `
         },
         {
             id: 5,
-            title: "Liên Hệ",
-            info: `Hãy gọi cho chúng tôi.`
+            title: "LIÊN HỆ",
+            info: `
+            <div class="content-container">
+                <a href='/pages/info/info.html'>THÔNG TIN LIÊN HỆ</a>
+            </div>
+        `
         },
     ];
 

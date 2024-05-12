@@ -3,61 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boxicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- CSS -->
-    <link rel="stylesheet" href="/assets/css/info.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <title>E-Commerce Watch Store</title>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- ================ HEADER ================ -->
     <header>
         <!-- Heading -->
         <div id="header">
             <div class="side-box"></div>
+
             <!-- Tự đổi tên cái Header nha -->
             <h1><a href="/index.html">Watch Store</a></h1>
+
             <div class="side-box search">
                 <div class="search_container">
                     <div class="search_icon">
                         <!-- Kiếm cái icon Search thêm vào -->
-                        <i></i>
+                        <i class='bx bx-search-alt-2'></i>
                     </div>
                     <input placeholder="Tìm sản phẩm, thương hiệu..." type="text">
                 </div>
                 <div class="cart">
                     <!-- Kiếm cái icon Cart thêm vào -->
-                    <i></i>
+                    <button class="cartBtn">
+                        <i class='bx bx-cart-alt'></i>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Navigation -->
         <nav>
-            <ul class="nav_container">
-                <!-- Đã tạo khung bằng JS. Chạy Live Server trên Trình Duyệt rồi soi các Items/Class để thiết kế lại cho đẹp -->
-            </ul>
+            <ul class="nav_container"></ul>
         </nav>
+
+        <!-- Drop Down Box -->
+        <div class="dropdown hide"></div>
     </header>
 
-    <!-- BRANDS -->
-    <!-- Thương Hiệu Đồng Hồ nổi tiếng -->
-    <h2 class="location_title">
-        THÔNG TIN & HỆ THỐNG CỬA HÀNG
-    </h2>
-    <div class="location_nav">
-        <div class="location_nav-item"></div>
-    </div>
-    <div class="brand_container">
-        <!--  -->
+    <!-- ================ MAIN CONTAINER ================ -->
+    <div class="main_container">
+        <div class="main_view">
+            <!-- Products COntainer -->
+            <div class="inner_container">
+
+                <div class="space"></div>
+                
+                <h2 class="collection-title">
+                    HỆ THỐNG CỬA HÀNG
+                </h2>
+                <section id="address-container">
+                    <div class="inner-address">
+                        <!-- address item -->
+                        <div class="address-item">
+                            <div class="box-img">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/dong-ho-hai-trieu-au-co-tan-binh.jpg" alt="address-img">
+                            </div>
+                            <div class="box-info">
+                                <div>
+                                    <h4>Chi Nhánh: </h4>
+                                    <p>160 Âu Cơ, P.9, Q.Tân Bình – TPHCM </p>
+                                    <a href="#">Xem Bản Đồ</a>
+                                </div>
+                                <div>
+                                    <h4>Điện Thoại: </h4>
+                                    <p>1900.6777</p>
+                                </div>
+                                <div>
+                                    <h4>Mail: </h4>
+                                    <p>lienhe@donghohaitrieu.com</p>
+                                </div>
+                                <div>
+                                    <h4>Bán các hãng: </h4>
+                                    <p>Citizen, Casio, Orient, Daniel Wellington, SR, Saga, Seiko, Fossil, OP, Candino, Skagen, Koi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address item -->
+                        <div class="address-item">
+                            <div class="box-img">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/dong-ho-hai-trieu-au-co-tan-binh-199.jpg" alt="address-img">
+                            </div>
+                            <div class="box-info">
+                                <div>
+                                    <h4>Chi Nhánh: </h4>
+                                    <p>199 Âu Cơ, P.5, Q.11 – TPHCM </p>
+                                    <a href="#">Xem Bản Đồ</a>
+                                </div>
+                                <div>
+                                    <h4>Điện Thoại: </h4>
+                                    <p>1900.6777</p>
+                                </div>
+                                <div>
+                                    <h4>Mail: </h4>
+                                    <p>lienhe@donghohaitrieu.com</p>
+                                </div>
+                                <div>
+                                    <h4>Bán các hãng: </h4>
+                                    <p>Doxa, Longines, Frederique Constant, Rado, Tissot, Citizen, Casio, Orient, Daniel Wellington, SR, Saga, Koi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address item -->
+                        <div class="address-item">
+                            <div class="box-img">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/dong-ho-hai-trieu-tran-quang-kha.jpg" alt="address-img">
+                            </div>
+                            <div class="box-info">
+                                <div>
+                                    <h4>Chi Nhánh: </h4>
+                                    <p>190D Trần Quang Khải, P.Tân Định, Q.1 – TPHCM </p>
+                                    <a href="#">Xem Bản Đồ</a>
+                                </div>
+                                <div>
+                                    <h4>Điện Thoại: </h4>
+                                    <p>1900.6777</p>
+                                </div>
+                                <div>
+                                    <h4>Mail: </h4>
+                                    <p>lienhe@donghohaitrieu.com</p>
+                                </div>
+                                <div>
+                                    <h4>Bán các hãng: </h4>
+                                    <p>Citizen, Casio, Orient, Daniel Wellington, Saga, Seiko, Fossil, OP, Candino, Skagen, Michael Kors, Koi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address item -->
+                        <div class="address-item">
+                            <div class="box-img">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/dong-ho-hai-trieu-tran-quang-kha-156.jpg" alt="address-img">
+                            </div>
+                            <div class="box-info">
+                                <div>
+                                    <h4>Chi Nhánh: </h4>
+                                    <p>156A Trần Quang Khải, P.Tân Định, Q.1 – TPHCM </p>
+                                    <a href="#">Xem Bản Đồ</a>
+                                </div>
+                                <div>
+                                    <h4>Điện Thoại: </h4>
+                                    <p>1900.6777</p>
+                                </div>
+                                <div>
+                                    <h4>Mail: </h4>
+                                    <p>lienhe@donghohaitrieu.com</p>
+                                </div>
+                                <div>
+                                    <h4>Bán các hãng: </h4>
+                                    <p>Doxa, Longines, Rado, Frederique Constant, Certina, Tissot, CK, Saga, Koi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address item -->
+                        <div class="address-item">
+                            <div class="box-img">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/dong-ho-hai-trieu-nguyen-anh-thu.jpg" alt="address-img">
+                            </div>
+                            <div class="box-info">
+                                <div>
+                                    <h4>Chi Nhánh: </h4>
+                                    <p>92/2 Nguyễn Ảnh Thủ, Hóc Môn – TPHCM </p>
+                                    <a href="#">Xem Bản Đồ</a>
+                                </div>
+                                <div>
+                                    <h4>Điện Thoại: </h4>
+                                    <p>1900.6777</p>
+                                </div>
+                                <div>
+                                    <h4>Mail: </h4>
+                                    <p>lienhe@donghohaitrieu.com</p>
+                                </div>
+                                <div>
+                                    <h4>Bán các hãng: </h4>
+                                    <p>Doxa, Longines, Tissot, Citizen, Casio, Orient, Daniel Wellington, SR, Saga, Seiko, Fossil, OP, Candino, Skagen, Koi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address item -->
+                        <div class="address-item">
+                            <div class="box-img">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/dong-ho-hai-trieu-chi-nhanh-676.jpg" alt="address-img">
+                            </div>
+                            <div class="box-info">
+                                <div>
+                                    <h4>Chi Nhánh: </h4>
+                                    <p>676 Lê Trọng Tấn, Q.Bình Tân – TPHCM </p>
+                                    <a href="#">Xem Bản Đồ</a>
+                                </div>
+                                <div>
+                                    <h4>Điện Thoại: </h4>
+                                    <p>1900.6777</p>
+                                </div>
+                                <div>
+                                    <h4>Mail: </h4>
+                                    <p>lienhe@donghohaitrieu.com</p>
+                                </div>
+                                <div>
+                                    <h4>Bán các hãng: </h4>
+                                    <p>Doxa, Longines, Tissot, Citizen, Casio, Orient, Daniel Wellington, Saga, Seiko, Fossil, Koi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address item -->
+                        <div class="address-item">
+                            <div class="box-img">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/07/cua-hang-dong-ho-hai-trieu-sang-trong.jpg" alt="address-img">
+                            </div>
+                            <div class="box-info">
+                                <div>
+                                    <h4>Chi Nhánh: </h4>
+                                    <p>560 Tỉnh Lộ 10, P.Bình Trị Đông, Q.Bình Tân – TPHCM </p>
+                                    <a href="#">Xem Bản Đồ</a>
+                                </div>
+                                <div>
+                                    <h4>Điện Thoại: </h4>
+                                    <p>1900.6777</p>
+                                </div>
+                                <div>
+                                    <h4>Mail: </h4>
+                                    <p>lienhe@donghohaitrieu.com</p>
+                                </div>
+                                <div>
+                                    <h4>Bán các hãng: </h4>
+                                    <p>Doxa, Longines, Tissot, Citizen, Casio, Orient, Daniel Wellington, Saga, Seiko, Fossil, OP, Koi</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- address item -->
+                        <div class="address-item">
+                            <div class="box-img">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/09/dong-ho-hai-trieu-phan-van-tri-g.jpg" alt="address-img">
+                            </div>
+                            <div class="box-info">
+                                <div>
+                                    <h4>Chi Nhánh: </h4>
+                                    <p>713 Phan Văn Trị, P.7, Q.Gò Vấp – TPHCM </p>
+                                    <a href="#">Xem Bản Đồ</a>
+                                </div>
+                                <div>
+                                    <h4>Điện Thoại: </h4>
+                                    <p>1900.6777</p>
+                                </div>
+                                <div>
+                                    <h4>Mail: </h4>
+                                    <p>lienhe@donghohaitrieu.com</p>
+                                </div>
+                                <div>
+                                    <h4>Bán các hãng: </h4>
+                                    <p>Doxa, Longines, Tissot, Citizen, Casio, Orient, Daniel Wellington, SR, Saga, Seiko, Fossil, Koi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="space"></div>
         
+                <!-- Social Media -->
+                <h2 class="collection-title">
+                    KẾT NỐI VỚI CHÚNG TÔI
+                </h2>
+                <section class="social_media_container">
+                    <div class="inner_layout inner_social_media">
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/08/fb.png" alt="facebook">
+                        </div>
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/08/it.png" alt="instagram">
+                        </div>
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/yt.png" alt="youtube">
+                        </div>
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/tt.png" alt="tiktok">
+                        </div>
+                        <div class="social_media">
+                            <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/tw.png" alt="x">
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="space"></div>
+
+                
+                <!-- ================ FOOTER ================ -->
+                <footer>
+                    <div class="footer_wrapper">
+                        <div class="column-item">
+                            <h3>CHÍNH SÁCH</h3>
+                            <div>
+                                <a class="link" href="#">Chính sách đổi hàng</a>
+                                <a class="link" href="#">Chính sách bảo hành</a>
+                            </div>
+                        </div>
+                        <div class="column-item">
+                            <h3>HỆ THỐNG CỬA HÀNG</h3>
+                            <div>
+                                <a class="link" href="#">Trung Tâm Bảo Hành</a>
+                                <a class="link" href="#">TP.HCM</a>
+                                <a class="link" href="#">HÀ NỘI</a>
+                                <a class="link" href="#">ĐÀ NẴNG</a>
+                                <a class="link" href="#">VŨNG TÀU</a>
+                                <a class="link" href="#">HẢI PHÒNG</a>
+                                <a class="link" href="#">BÌNH DƯƠNG</a>
+                                <a class="link" href="#">CẦN THƠ</a>
+                                <a class="link" href="#">LONG XUYÊN</a>
+                            </div>
+                        </div>
+                        <div class="column-item">
+                            <h3>THÔNG TIN</h3>
+                            <div>
+                                <a class="link" href="#">Thông tin liên hệ</a>
+                                <a class="link" href="#">Thanh toán - Trả góp</a>
+                                <a class="link" href="#">Liên hệ đối tác doanh nghiệp</a>
+                                <a class="link" href="#">Vận chuyển & Giao nhận</a>
+                            </div>
+                            <h3>THAM KHẢO</h3>
+                            <div>
+                                <a class="link" href="#">Điều khoản sử dụng</a>
+                                <a class="link" href="#">Bảo mật thông tin</a>
+                                <a class="link" href="#">Tra cứu đồng hồ bảo hành</a>
+                            </div>
+                        </div>
+                        <div class="column-item">
+                            <h3>VỀ CHÚNG TÔI</h3>
+                            <div>
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/p11.png" alt="">
+                                <img src="https://image.donghohaitrieu.com/wp-content/uploads/2023/06/p12.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer_para">
+                        &copy; 2024 E-Commerce Watch Store. All rights reserved.
+                    </div>
+                </footer>
+            </div>
+    
+            <!-- Cart Sidebar -->
+            <div class="sidebar right hide">
+                <div class="cartContainer">
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="space"></div>
-
-    <!-- FOOTER -->
-    <footer>
-        &copy; 2024 E-Commerce Watch Store. All rights reserved.
-    </footer>
 
 
     <!-- Script -->
