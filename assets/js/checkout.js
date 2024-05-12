@@ -589,6 +589,8 @@ function checkout(event) {
         address: address,
         city: city
     }; 
+
+
     
     
     // Event Handler
@@ -604,15 +606,31 @@ function checkout(event) {
             if (payment[i].checked) {
 
                 // get cart
-                const cart = JSON.parse(localStorage.getItem('cart')) || {};
-                localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
-
-                // get customers
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                // get customers 
                 const customerList = JSON.parse(localStorage.getItem('customerList')) || [];
+                // get product sold
+                const soldProduct = JSON.parse(localStorage.getItem('sold')) || [];
+                
+                // ...
+                // const productSell = {
+                //     name: name,
+                //     phone: phone,
+                //     products: cart
+                // }
+                
+                
                 // update Customer List
                 customerList.push(customerObj);
-                console.log("new Array of customerList: ", Array(customerList));
                 localStorage.setItem('customerList', JSON.stringify(customerList));
+                // console.log("new Array of customerList: ", Array(customerList));
+
+                // ...
+                soldProduct.push(cart);
+                localStorage.setItem('sold', JSON.stringify(soldProduct));
+
+                // delete cart in localStorage
+                localStorage.removeItem('cart'); // Xóa giỏ hàng sau khi thanh toán
 
                 // render HTML
                 alertBox.innerHTML = "";
